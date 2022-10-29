@@ -7,8 +7,8 @@ import MainContent from "./MainContent.vue";
 <template>
    <div class="flex">
       <Sidebar />
-      <div class="w-full">
-         <Header></Header>
+      <div class="w-full  ">
+         <Header />
          <MainContent>
             <slot />
          </MainContent>
