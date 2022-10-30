@@ -118,7 +118,7 @@ export default {
 .Announcement-btn {
     display: flex;
     margin: 20px 50px;
-    justify-content: end;
+   
     gap: 15px;
 
 }
