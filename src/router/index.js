@@ -11,10 +11,10 @@ import salom from "../views/Products/create.vue";
 import ItemEdit from "../views/Products/edit.vue";
 import ProductItem from "../views/ProductItem.vue";
 
-import Customers from "../views/Customers/index.vue";
-import CustomersAdd from "../views/Customers/create.vue";
-import CustomersEdit from "../views/Customers/edit.vue";
-import CustomersView from "../views/Customers/view.vue";
+import Faculties from "../views/Faculties/index.vue";
+import FacultiesAdd from "../views/Faculties/create.vue";
+import FacultiesEdit from "../views/Faculties/edit.vue";
+import FacultiesView from "../views/Faculties/view.vue";
 
 import Monitor from "../views/Manitor.vue";
 
@@ -41,24 +41,24 @@ const router = createRouter({
     },
 
     {
-      path: "/customers",
-      name: "customers",
-      component: Customers,
+      path: "/faculties",
+      name: "faculties",
+      component: Faculties,
     },
     {
-      path: "/customers/create",
-      name: "customers.create",
-      component: CustomersAdd,
+      path: "/faculties/create",
+      name: "faculties.create",
+      component: FacultiesAdd,
     },
     {
-      path: "/customers/edit/:id",
-      name: "customers.edit",
-      component: CustomersEdit,
+      path: "/faculties/edit/:id",
+      name: "faculties.edit",
+      component: FacultiesEdit,
     },
     {
-      path: "/customers/view/:id",
-      name: "customers.view",
-      component: CustomersView,
+      path: "/faculties/view/:id",
+      name: "faculties.view",
+      component: FacultiesView,
     },
 
     // Order Page

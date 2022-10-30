@@ -18,7 +18,7 @@
           <span class="d-flex block">Analitika</span>
         </RouterLink>
 
-        <RouterLink to="/customers" class="font-semibold flex mb-7">
+        <RouterLink to="/faculties" class="font-semibold flex mb-7">
           <FakultetIcon/>
           <span>Fakultetlar</span>
         </RouterLink>
