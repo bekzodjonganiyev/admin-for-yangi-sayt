@@ -21,7 +21,7 @@
                         <div class="Announcement-date ">
 
                             <InputComponent required class="w-full" name="e'lon kiritilgan vaqti" type="date"
-                                v-model="date" />
+                                v-model="elon.date" />
 
                             <!-- <InputComponent required class="w-full" type="file" name="e'lon rasmi" v-model="AnnouncementImg" /> -->
 
@@ -65,6 +65,7 @@ export default {
                 body_uz: "",
                 body_ru: "",
                 body_eng: "",
+                data: ""
             }
         }
     },
@@ -78,6 +79,7 @@ export default {
                     body_uz: this.elon.body_uz,
                     body_ru: this.elon.body_ru,
                     body_en: this.elon.body_eng,
+                    data: this.elon.body_eng,
                 }
             ).then((res) => {
                 this.xabar()
