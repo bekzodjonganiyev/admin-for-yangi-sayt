@@ -2,33 +2,45 @@
     <Layout>
         <form @submit.prevent="postData">
             <div class="my-8 mx-40 rounded-xl drop-shadow-md pt-20 pb-20 bg-white">
-                <div class="flex justify-evenly">
-                    <div class="space-y-6">
-                        <InputComponent class="w-full" name="Organization" v-model="organization" />
-                        <InputComponent class="w-full" name="Phone" v-model="phone" />
-                        <InputComponent class="w-full" name="Password" v-model="password1" />
-                        <InputComponent class="w-full" name="Confirm Password" v-model="password2" />
+                <div class="flex justify-evenly w-full">
+                    <div class="space-y-6 announcement">
+                        <h1 class="Announcement-info">e'lon o'zbek tilida qo'shish</h1><hr/>
+                        <InputComponent required class="w-full" name="Yangilik nomi uz" v-model="AnnouncementName_uz" />
+                        <TextAreaComponents required class="w-full"  v-model="AnnouncementText_uz"  name="Yangilik matni uz" />
+
+                        <h1 class="Announcement-info">e'lon rus tilida qo'shish</h1>
+                        <hr />
+                        <InputComponent required class="w-full" name="Yangilik nomi ru" v-model="AnnouncementName_ru" />
+                        <TextAreaComponents required class="w-full" v-model="AnnouncementText_ru" name="Yangilik matni ru" />
+
+                        <h1 class="Announcement-info">e'lon ingliz tilida qo'shish</h1>
+                        <hr />
+                        <InputComponent required class="w-full" name="Yangilik nomi eng" v-model="AnnouncementName_eng" />
+                        <TextAreaComponents  requiredclass="w-full" v-model="AnnouncementText_eng" name="Yangilik matni eng" />
+                        <div class="Announcement-date ">
+
+                            <InputComponent required class="w-full" name="e'lon kiritilgan vaqti" type="date"  v-model="date" />
+                            
+                            <InputComponent required class="w-full" type="file" name="e'lon rasmi" v-model="AnnouncementImg" />
+                       
+                        </div>
                     </div>
-                    <div class="space-y-6">
-                        <InputComponent class="w-full" name="Username" v-model="user_name" />
-                        <InputComponent
-                            class="w-full"
-                            :type="checkbox"
-                            name="Is organization admin"
-                            v-model="is_org_admin"
-                        />
-                        <InputComponent
-                            class="w-full"
-                            :type="checkbox"
-                            name="Is manager"
-                            v-model="is_manager"
-                        />
-                    </div>
+                 
                 </div>
+                <div class="Announcement-btn">
+
+               
                 <button
                     type="submit"
-                    class="absolute mt-40 bottom-2 right-5 bg-blue-800 text-white font-bold px-7 py-4 rounded-md cursor-pointer active:bg-blue-500"
-                >Save</button>
+                    class="   bg-blue-800 text-white font-bold px-7 py-4 rounded-md cursor-pointer active:bg-blue-500"
+                >yuklash </button>
+<RouterLink to="/users">
+
+    <button type="submit"
+        class="  bg-red-500 text-white font-bold px-7 py-4 rounded-md cursor-pointer active:bg-red-400">Ortga</button>
+        
+</RouterLink>
+                </div>
             </div>
         </form>
     </Layout>
@@ -37,30 +49,32 @@
 <script>
 import Layout from "../../components/Layout.vue";
 import InputComponent from "../../components/InputComponent.vue";
+import TextAreaComponents from "../../components/TextAreaComponents.vue"
 import { http } from "../../utils/http";
 export default {
     components: {
         Layout,
-        InputComponent
+          InputComponent, 
+          TextAreaComponents,
     },
     data() {
         return {
-            organization: 1,
-            phone: "",
-            password1: "",
-            password2: "",
-            user_name: "",
-            is_org_admin: "",
-            is_manager: ""
+            AnnouncementName_uz: "",
+            AnnouncementName_ru: "",
+            AnnouncementName_eng: "",
+            AnnouncementText_uz: "",
+            AnnouncementText_ru: "",
+            AnnouncementText_eng: "",
+            AnnouncementImg:"", 
         }
     },
     methods: {
         postData() {
             http.post('/custom-user/create/',
                 {
-                    organization: this.organization,
-                    phone: this.phone,
-                    password1: this.password1,
+                    AnnouncementName_uz: this.organizatiosdssn,
+                    AnnouncementName_ru: this.phone,
+                    AnnouncementName_eng: this.password1,
                     password2: this.password2,
                     user_name: this.user_name,
                     is_org_admin: this.is_org_admin,
@@ -80,3 +94,28 @@ export default {
     }
 }
 </script>
+<style>
+.announcement{
+    width:80vw;
+    margin: 0 50px;
+}
+.Announcement-date{
+    display: flex;
+    gap: 10px;
+}
+.Announcement-info{
+    display: flex;
+    font-size: 25px;
+    color: rgb(30, 65, 118);
+    font-weight: 700;
+    justify-content: center;
+
+}
+.Announcement-btn{
+    display: flex;
+    margin: 20px 50px;
+    justify-content: end;
+    gap: 15px;
+
+}
+</style>

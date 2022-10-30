@@ -5,6 +5,7 @@ import Announcement from "../views/Announcement/index.vue";
 import AnnouncementEdit from "../views/Announcement/edit.vue";
 import AnnouncementAdd from "../views/Announcement/create.vue";
 
+import Paper from "../views/paper/index.vue"
 import Items from "../views/Products/index.vue";
 import salom from "../views/Products/create.vue";
 import ItemEdit from "../views/Products/edit.vue";
@@ -141,6 +142,12 @@ const router = createRouter({
       path: "/profil",
       name: "profil",
       component: Profil,
+    },
+    // paper
+    {
+      path: "/paper",
+      name: "paper",
+      component: Paper,
     },
 
     // NEWS
