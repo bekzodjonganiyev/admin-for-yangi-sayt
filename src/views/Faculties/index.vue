@@ -17,7 +17,7 @@
             class="placeholder:text-slate-400 block bg-white w-96 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm"
             placeholder="Qidiring" type="text" name="search" />
         </label>
-        <router-link to="/customers/create">
+        <router-link to="/faculties/create">
           <button
             class="bg-blue-800 text-white active:bg-blue-400 font-bold text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
             type="button">Malumot Qo'shish</button>
@@ -40,10 +40,10 @@
                 <td class="p-3 text-sm text-gray-700 whitespce-nowrap">{{ customer.phone }}</td>
                 <td class="flex">
                   <button type="button" class="mr-2 bg-orange-400 py-1 px-2 rounded">
-                    <RouterLink :to="{ name: 'customers.edit', params: { id: customer.id } }">Edit</RouterLink>
+                    <RouterLink :to="{ name: 'faculties.edit', params: { id: customer.id } }">Edit</RouterLink>
                   </button>
                   <button type="button" class="mr-2 bg-blue-400 py-1 px-2 rounded">
-                    <router-link :to="{ name: 'customers.view', params: { id: customer.id } }">View</router-link>
+                    <router-link :to="{ name: 'faculties.view', params: { id: customer.id } }">View</router-link>
                   </button>
                   <button type="button" @click="deleteData(customer.id)"
                     class="bg-red-400 py-1 px-2 rounded">Delete</button>
