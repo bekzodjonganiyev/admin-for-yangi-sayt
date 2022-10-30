@@ -43,9 +43,14 @@
           <span>E'lon</span>
         </RouterLink>
 
+        <RouterLink to="/news" class="font-semibold flex mb-7">
+          <ElonlarIcon/>
+          <span>Yangiliklar</span>
+        </RouterLink>
+
         <RouterLink to="/settings" class="font-semibold flex mb-7">
           <YangiliklarIcon/>
-          <span>Yangilik</span>
+          <span>Sozlamalar</span>
         </RouterLink>
       </div>
     </div>

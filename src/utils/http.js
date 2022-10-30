@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const http = axios.create({
-    baseURL: "http://yolbelgilaribot.pythonanywhere.com/api",
+    baseURL: "https://umidaka.herokuapp.com",
 });
 
 http.interceptors.request.use((config) => {
