@@ -9,12 +9,12 @@
                         <InputComponent required class="w-full" name="Yangilik nomi uz" v-model="elon.title_uz" />
                         <TextAreaComponents required class="w-full" v-model="elon.body_uz" name="Yangilik matni uz" />
 
-                    <h1 class="Announcement-info">e'lon rus tilida o'zgartirish</h1>
+                    <h1 class="Announcement-info">e'lon rus tilida tahrirlash</h1>
                     <hr />
                     <InputComponent required class="w-full" name="Yangilik nomi ru" v-model="elon.title_ru" />
                     <TextAreaComponents required class="w-full" v-model="elon.body_ru" name="Yangilik matni ru" />
                     
-                    <h1 class="Announcement-info">e'lon ingliz tilida o'zgartirish</h1>
+                    <h1 class="Announcement-info">e'lon ingliz tilida tahrirlash</h1>
                     <hr />
 
                     <InputComponent required class="w-full" name="Yangilik nomi eng" v-model="elon.title_eng" />
@@ -22,7 +22,7 @@
                     
                     <div class="Announcement-date ">
                     
-                        <InputComponent required class="w-full" name="e'lon kiritilgan vaqti" type="date" v-model="date" />
+                        <InputComponent required class="w-full" name="e'lon kiritilgan vaqti" type="date" v-model="elon.date" />
                     
                         <!-- <InputComponent required class="w-full" type="file" name="e'lon rasmi" v-model="AnnouncementImg" /> -->
                     
@@ -69,6 +69,7 @@ export default {
                 body_uz: "",
                 body_ru: "",
                 body_eng: "",
+                data:""
             }
         }
     },

@@ -68,7 +68,7 @@
     },
     methods: {
       getData() {
-        http.get('/kafedra_data/all').then((response) => {
+        http.get('/news/all').then((response) => {
           this.customers = response.data.data;
           console.log(this.customers);
         }).catch(error => {

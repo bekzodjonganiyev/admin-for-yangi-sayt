@@ -4,17 +4,17 @@
             <div class="my-8 mx-40 rounded-xl drop-shadow-md pt-20 pb-20 bg-white">
                 <div class="flex justify-evenly w-full">
                     <div class="space-y-6 announcement">
-                        <h1 class="Announcement-info">e'lon o'zbek tilida tahrirlash</h1>
+                        <h1 class="Announcement-info">e'lon o'zbek tilida ko'rish</h1>
                         <hr />
                         <InputComponent required class="w-full" name="Yangilik nomi uz" v-model="elon.title_uz" />
                         <TextAreaComponents required class="w-full" v-model="elon.body_uz" name="Yangilik matni uz" />
 
-                        <h1 class="Announcement-info">e'lon rus tilida o'zgartirish</h1>
+                        <h1 class="Announcement-info">e'lon rus tilida ko'rish</h1>
                         <hr />
                         <InputComponent required class="w-full" name="Yangilik nomi ru" v-model="elon.title_ru" />
                         <TextAreaComponents required class="w-full" v-model="elon.body_ru" name="Yangilik matni ru" />
 
-                        <h1 class="Announcement-info">e'lon ingliz tilida o'zgartirish</h1>
+                        <h1 class="Announcement-info">e'lon ingliz tilida ko'rish</h1>
                         <hr />
 
                         <InputComponent required class="w-full" name="Yangilik nomi eng" v-model="elon.title_eng" />

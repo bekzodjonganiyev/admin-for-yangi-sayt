@@ -4,6 +4,7 @@ import Dashboard from "../views/Dashboard.vue";
 import Announcement from "../views/Announcement/index.vue";
 import AnnouncementEdit from "../views/Announcement/edit.vue";
 import AnnouncementAdd from "../views/Announcement/create.vue";
+import AnnouncementView from "../views/Announcement/view.vue"
 
 import Paper from "../views/paper/index.vue"
 import Items from "../views/Products/index.vue";
@@ -114,6 +115,11 @@ const router = createRouter({
       path: "/user/create",
       name: "user.create",
       component: AnnouncementAdd,
+    },
+    {
+      path: "/user/view/:id",
+      name: "user.view",
+      component: AnnouncementView,
     },
     {
       path: "/users/edit/:id",

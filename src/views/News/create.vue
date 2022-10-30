@@ -101,7 +101,7 @@ export default {
 
 <style>
 .news{
-    width: 60vw;
+    width: 50vw;
     margin: 0 50px;
 }
 

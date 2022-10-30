@@ -47,7 +47,7 @@
                                         </button>
 
                                         <button type="button" class="mr-2 bg-blue-400 py-1 px-2 rounded">
-                                            <router-link :to="{ name: 'users.edit', params: { id: user._id } }">Ko'rish
+                                            <router-link :to="{ name: 'user.view', params: { id: user._id } }">Ko'rish
                                             </router-link>
                                         </button>
 

@@ -21,7 +21,7 @@
                         
                         <div class="Announcement-date ">
 
-                            <InputComponent required class="w-full" name="e'lon kiritilgan vaqti" type="date"
+                            <InputComponent required class="w-full" name="e'lon kiritilgan vaqti" type="elon.date"
                                 v-model="date" />
 
                             <!-- <InputComponent required class="w-full" type="file" name="e'lon rasmi" v-model="AnnouncementImg" /> -->
@@ -66,6 +66,7 @@ export default {
                 body_uz: "",
                 body_ru: "",
                 body_eng: "",
+                data:""
             }
         }
     },
@@ -98,7 +99,7 @@ export default {
 </script>
 <style>
 .announcement {
-    width: 60vw;
+    width: 50vw;
     margin: 0 50px;
 }
 
