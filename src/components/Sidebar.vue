@@ -47,6 +47,11 @@
           <YangiliklarIcon/>
           <span>Yangilik</span>
         </RouterLink>
+
+        <RouterLink to="/paper" class="font-semibold flex mb-7">
+          <YangiliklarIcon />
+          <span>Tanlovlar</span>
+        </RouterLink>
       </div>
     </div>
   </div>

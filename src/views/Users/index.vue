@@ -1,9 +1,9 @@
 <template>
     <Layout>
         <div class="container">
-            <h1 class="font-semibold text-xl">Users</h1>
+            
             <div class="my-5">
-                <div class="flex">
+                <div class="flex announcement-block">
                      <label class="relative block">
                <!-- <span class="sr-only">Search</span> -->
                <span class="absolute left-1 top-2 flex items-center pl-2">
@@ -21,68 +21,52 @@
                     </svg>
                </span>
                <input
+               
                     id="myInput"
                     class="placeholder:text-slate-400 block bg-white w-96 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm"
-                    placeholder="Search order"
+                    placeholder="E'lon qidirish"
                     type="text"
                     name="search"
                />
           </label>
                     <div class="inline-flex ml-80">
-                        <div class="flex mr-5">
-                            <img
-                                class="w-7 h-7 fill-blue-900 mt-2 rotate-180"
-                                src="../../assets/export.svg"
-                                alt
-                            />
-                            <button class="text-indigo-600">Import</button>
-                        </div>
-                        <div class="flex mr-5">
-                            <img
-                                class="fill-blue-900 w-7 h-7 mt-2 text-blue-900"
-                                src="../../assets/export.svg"
-                                alt
-                            />
-                            <button class="text-indigo-600">Export</button>
-                        </div>
+                      
                         <div>
                             <router-link to="/user/create">
                                 <button
                                     class="bg-blue-800 text-white active:bg-blue-400 font-bold text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-                                >Add User</button>
+                                >E'lon qo'shish</button>
                             </router-link>
                         </div>
                     </div>
                 </div>
                 <div class="h-full w-full">
-                    <h1 class="text-xl my-6">Recent Users</h1>
+                    <h1 class="text-xl my-6">E'lonlar</h1>
                     <div
-                        class="overflow-auto p-5 overflow-y-scroll bg-white rounded-lg shadow hidden md:block"
+                        class="overflow-auto p-5 bg-white rounded-lg shadow hidden md:block"
                     >
                         <table class="w-full">
                             <thead class="bg-gray-100">
                                 <tr>
+                                    <th class="w-10 text-zinc-400 p-3 text-sm font-semibold tracking-wide text-left">ID</th>
                                     <th
                                         class="w-32 text-zinc-400 p-3 text-sm font-semibold tracking-wide text-left"
-                                    >Organization</th>
+                                    > E'lon rasmi</th>
+                                 
                                     <th
                                         class="w-32 text-zinc-400 p-3 text-sm font-semibold tracking-wide text-left"
-                                    >Phone</th>
+                                    >E'lon nomi</th>
+                                    <th class="w-32 text-zinc-400 p-3 text-sm font-semibold tracking-wide text-left">E'lon matni</th>
                                     <th
                                         class="w-32 text-zinc-400 p-3 text-sm font-semibold tracking-wide text-left"
-                                    >Password</th>
+                                    >E'lon vaqti</th>
                                     <th
                                         class="w-32 text-zinc-400 p-3 text-sm font-semibold tracking-wide text-left"
-                                    >UserName</th>
+                                    >E'lonni tahrirlash</th>
                                     <th
                                         class="w-32 text-zinc-400 p-3 text-sm font-semibold tracking-wide text-left"
-                                    >Is_org_admin</th>
-                                    <th
-                                        class="w-32 text-zinc-400 p-3 text-sm font-semibold tracking-wide text-left"
-                                    >Is_mng</th>
-                                    <th
-                                        class="w-32 text-zinc-400 p-3 text-sm font-semibold tracking-wide text-left"
-                                    >Options</th>
+                                    >E'lonni o'chirish</th>
+                                 
                                 </tr>
                             </thead>
                             <tbody class="divide-y divide-gray-100">
@@ -165,3 +149,10 @@ export default {
     }
 }
 </script> 
+
+<style>
+.announcement-block{
+    display: flex;
+    justify-content: space-between;
+}
+</style>

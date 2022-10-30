@@ -5,6 +5,7 @@ import Users from "../views/Users/index.vue";
 import UserEdit from "../views/Users/edit.vue"
 import UserAdd from "../views/Users/create.vue"
 
+import Paper from "../views/paper/index.vue"
 import Items from "../views/Products/index.vue";
 import salom from "../views/Products/create.vue"
 import ItemEdit from "../views/Products/edit.vue"
@@ -32,115 +33,121 @@ const router = createRouter({
     {
       path: "/dashboard",
       name: "dashboard",
-      component: Dashboard, 
+      component: Dashboard,
     },
 
     {
       path: "/customers",
       name: "customers",
-      component: Customers,  
+      component: Customers,
     },
     {
       path: "/customers/create",
       name: "customers.create",
-      component: CustomersAdd,  
+      component: CustomersAdd,
     },
     {
       path: "/customers/edit/:id",
       name: "customers.edit",
-      component: CustomersEdit,  
+      component: CustomersEdit,
     },
     {
       path: "/customers/view/:id",
       name: "customers.view",
-      component: CustomersView,  
+      component: CustomersView,
     },
 
     // Order Page
     {
       path: "/orders",
       name: "orders",
-      component: Orders,  
+      component: Orders,
     },
     {
       path: "/orders/create",
       name: "orders.create",
-      component: OrdersAdd,  
+      component: OrdersAdd,
     },
     {
       path: "/orders/edit/:id",
       name: "orders.edit",
-      component: OrdersEdit,  
+      component: OrdersEdit,
     },
     {
       path: "/orders/view/:id",
       name: "orders.view",
-      component: OrdersView,  
+      component: OrdersView,
     },
 
 
     {
-      path:"/productitem",
-      name:"productitem",
-      component:ProductItem,
+      path: "/productitem",
+      name: "productitem",
+      component: ProductItem,
     },
     {
       path: "/",
       name: "home",
-      component: Login,  
+      component: Login,
     },
     {
       path: "/monitor",
       name: "monitor",
-      component: Monitor,  
+      component: Monitor,
     },
     {
       path: "/settings",
       name: "settings",
-      component: Settings,  
+      component: Settings,
     },
 
     // User page
     {
       path: "/users",
       name: "users",
-      component: Users,  
+      component: Users,
     },
     {
       path: "/user/create",
       name: "user.create",
-      component: UserAdd,  
+      component: UserAdd,
     },
     {
       path: "/users/edit/:id",
       name: "users.edit",
-      component: UserEdit,  
+      component: UserEdit,
     },
-    
+
     //
     {
       path: "/items",
       name: "items",
-      component: Items,  
+      component: Items,
     },
     {
       path: "/item/create",
       name: "item.create",
-      component: salom,  
+      component: salom,
     },
     {
       path: "/items/edit/:id",
       name: "items.edit",
-      component: ItemEdit,  
+      component: ItemEdit,
     },
 
     {
-      path:"/profil",
-      name:"profil",
-      component:Profil,
+      path: "/profil",
+      name: "profil",
+      component: Profil,
     },
-   
-    
+    // paper
+    {
+      path: "/paper",
+      name: "paper",
+      component: Paper,
+    },
+
+
   ],
 });
 
