@@ -18,23 +18,14 @@
 </template>
 <script>
 
-// defineProps({
-//     name: String
-// })
 export default {
-    // props:{
-    //     name:String
-    // },
-    // props: ['modelValue', 'name', 'type'],
+
     props: {
         modelValue: String,
         name: String,
         type: String,
     },
     emits: ['update:modelValue'],
-    // created()
-    // {
-    // console.log(this.name)
-    // }
+
 }
 </script>

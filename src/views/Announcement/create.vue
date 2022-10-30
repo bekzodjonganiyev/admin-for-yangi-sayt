@@ -4,42 +4,41 @@
             <div class="my-8 mx-40 rounded-xl drop-shadow-md pt-20 pb-20 bg-white">
                 <div class="flex justify-evenly w-full">
                     <div class="space-y-6 announcement">
-                        <h1 class="Announcement-info">e'lon o'zbek tilida qo'shish</h1><hr/>
-                        <InputComponent required class="w-full" name="Yangilik nomi uz" v-model="AnnouncementName_uz" />
-                        <TextAreaComponents required class="w-full"  v-model="AnnouncementText_uz"  name="Yangilik matni uz" />
+                        <h1 class="Announcement-info">e'lon o'zbek tilida qo'shish</h1>
+                        <hr />
+                        <InputComponent required class="w-full" name="Yangilik nomi uz" v-model="elon.title_uz" />
+                        <TextAreaComponents required class="w-full" v-model="elon.body_uz" name="Yangilik matni uz" />
 
                         <h1 class="Announcement-info">e'lon rus tilida qo'shish</h1>
                         <hr />
-                        <InputComponent required class="w-full" name="Yangilik nomi ru" v-model="AnnouncementName_ru" />
-                        <TextAreaComponents required class="w-full" v-model="AnnouncementText_ru" name="Yangilik matni ru" />
+                        <InputComponent required class="w-full" name="Yangilik nomi ru" v-model="elon.title_ru" />
+                        <TextAreaComponents required class="w-full" v-model="elon.body_ru" name="Yangilik matni ru" />
 
                         <h1 class="Announcement-info">e'lon ingliz tilida qo'shish</h1>
                         <hr />
-                        <InputComponent required class="w-full" name="Yangilik nomi eng" v-model="AnnouncementName_eng" />
-                        <TextAreaComponents  requiredclass="w-full" v-model="AnnouncementText_eng" name="Yangilik matni eng" />
+                        <InputComponent required class="w-full" name="Yangilik nomi eng" v-model="elon.title_eng" />
+                        <TextAreaComponents required class="w-full" v-model="elon.body_eng" name="Yangilik matni eng" />
                         <div class="Announcement-date ">
 
-                            <InputComponent required class="w-full" name="e'lon kiritilgan vaqti" type="date"  v-model="date" />
-                            
-                            <InputComponent required class="w-full" type="file" name="e'lon rasmi" v-model="AnnouncementImg" />
-                       
+                            <InputComponent required class="w-full" name="e'lon kiritilgan vaqti" type="date"
+                                v-model="date" />
+
+                            <!-- <InputComponent required class="w-full" type="file" name="e'lon rasmi" v-model="AnnouncementImg" /> -->
+
                         </div>
                     </div>
-                 
+
                 </div>
                 <div class="Announcement-btn">
 
-               
-                <button
-                    type="submit"
-                    class="   bg-blue-800 text-white font-bold px-7 py-4 rounded-md cursor-pointer active:bg-blue-500"
-                >yuklash </button>
-<RouterLink to="/users">
 
-    <button type="submit"
-        class="  bg-red-500 text-white font-bold px-7 py-4 rounded-md cursor-pointer active:bg-red-400">Ortga</button>
-        
-</RouterLink>
+                    <button type="submit"
+                        class="   bg-blue-800 text-white font-bold px-7 py-4 rounded-md cursor-pointer active:bg-blue-500">yuklash
+                    </button>
+                    <RouterLink to="/users">
+                        <button type="submit"
+                            class="  bg-red-500 text-white font-bold px-7 py-4 rounded-md cursor-pointer active:bg-red-400">Ortga</button>
+                    </RouterLink>
                 </div>
             </div>
         </form>
@@ -54,35 +53,37 @@ import { http } from "../../utils/http";
 export default {
     components: {
         Layout,
-          InputComponent, 
-          TextAreaComponents,
+        InputComponent,
+        TextAreaComponents,
     },
     data() {
         return {
-            AnnouncementName_uz: "",
-            AnnouncementName_ru: "",
-            AnnouncementName_eng: "",
-            AnnouncementText_uz: "",
-            AnnouncementText_ru: "",
-            AnnouncementText_eng: "",
-            AnnouncementImg:"", 
+            elon: {
+                title_uz: "",
+                title_ru: "",
+                title_eng: "",
+                body_uz: "",
+                body_ru: "",
+                body_eng: "",
+            }
         }
     },
     methods: {
         postData() {
-            http.post('/custom-user/create/',
+            http.post('/elon/add',
                 {
-                    AnnouncementName_uz: this.organizatiosdssn,
-                    AnnouncementName_ru: this.phone,
-                    AnnouncementName_eng: this.password1,
-                    password2: this.password2,
-                    user_name: this.user_name,
-                    is_org_admin: this.is_org_admin,
-                    is_manager: this.is_manager,
+                    title_uz: this.elon.title_uz,
+                    title_ru: this.elon.title_ru,
+                    title_en: this.elon.title_eng,
+                    body_uz: this.elon.body_uz,
+                    body_ru: this.elon.body_ru,
+                    body_en: this.elon.body_eng,
                 }
-            ).then(() => {
+            ).then((res) => {
                 this.xabar()
-            }).catch(() => {
+                console.log(res)
+            }).catch((err) => {
+                console.log(err)
             })
         },
         xabar() {
@@ -95,15 +96,17 @@ export default {
 }
 </script>
 <style>
-.announcement{
-    width:80vw;
+.announcement {
+    width: 60vw;
     margin: 0 50px;
 }
-.Announcement-date{
+
+.Announcement-date {
     display: flex;
     gap: 10px;
 }
-.Announcement-info{
+
+.Announcement-info {
     display: flex;
     font-size: 25px;
     color: rgb(30, 65, 118);
@@ -111,7 +114,8 @@ export default {
     justify-content: center;
 
 }
-.Announcement-btn{
+
+.Announcement-btn {
     display: flex;
     margin: 20px 50px;
     justify-content: end;
