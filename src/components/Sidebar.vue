@@ -28,7 +28,7 @@
           <span>Kafedralar</span>
         </RouterLink>
 
-        <RouterLink to="/orders" class="font-semibold flex mb-7">
+        <RouterLink to="/actions" class="font-semibold flex mb-7">
           <FaoliyatIcon/>
           <span>Faoliyat</span>
         </RouterLink>

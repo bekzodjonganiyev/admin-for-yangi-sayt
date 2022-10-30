@@ -18,10 +18,10 @@ import FacultiesView from "../views/Faculties/view.vue";
 
 import Monitor from "../views/Manitor.vue";
 
-import Orders from "../views/Orders/Orders.vue";
-import OrdersAdd from "../views/Orders/OrdersAdd.vue";
-import OrdersEdit from "../views/Orders/OrdersEdit.vue";
-import OrdersView from "../views/Orders/OrdersView.vue";
+import Actions from "../views/Actions/Orders.vue";
+import ActionsAdd from "../views/Actions/OrdersAdd.vue";
+import ActionsEdit from "../views/Actions/OrdersEdit.vue";
+import ActionsView from "../views/Actions/OrdersView.vue";
 
 import Settings from "../views/Settings.vue";
 import Profil from "../views/Profil.vue";
@@ -63,24 +63,24 @@ const router = createRouter({
 
     // Order Page
     {
-      path: "/orders",
-      name: "orders",
-      component: Orders,
+      path: "/actions",
+      name: "actions",
+      component: Actions,
     },
     {
-      path: "/orders/create",
-      name: "orders.create",
-      component: OrdersAdd,
+      path: "/actions/create",
+      name: "actions.create",
+      component: ActionsAdd,
     },
     {
-      path: "/orders/edit/:id",
-      name: "orders.edit",
-      component: OrdersEdit,
+      path: "/actions/edit/:id",
+      name: "actions.edit",
+      component: ActionsEdit,
     },
     {
-      path: "/orders/view/:id",
-      name: "orders.view",
-      component: OrdersView,
+      path: "/actions/view/:id",
+      name: "actions.view",
+      component: ActionsView,
     },
 
     {
