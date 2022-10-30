@@ -18,6 +18,7 @@
                         <hr />
                         <InputComponent required class="w-full" name="Yangilik nomi eng" v-model="elon.title_eng" />
                         <TextAreaComponents required class="w-full" v-model="elon.body_eng" name="Yangilik matni eng" />
+                        
                         <div class="Announcement-date ">
 
                             <InputComponent required class="w-full" name="e'lon kiritilgan vaqti" type="date"

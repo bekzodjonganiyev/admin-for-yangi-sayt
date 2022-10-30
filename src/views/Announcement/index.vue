@@ -82,7 +82,7 @@ export default {
     },
     methods: {
         getData() {
-            http.get('/kafedra_data/all').then((response) => {
+            http.get('/elon/all').then((response) => {
                 this.users = response.data.data;
                 console.log(this.users)
             })

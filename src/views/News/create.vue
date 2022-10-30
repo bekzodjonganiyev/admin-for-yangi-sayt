@@ -72,7 +72,7 @@ export default {
     },
     methods: {
         postData() {
-            http.post('/elon/add',
+            http.post('/news/add',
                 {
                     title_uz: this.yangilik.title_uz,
                     title_ru: this.yangilik.title_ru,

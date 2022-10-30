@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const http = axios.create({
-    baseURL: "https://umidaka.herokuapp.com",
+    baseURL: "http://localhost:4000",
 });
 
 http.interceptors.request.use((config) => {
