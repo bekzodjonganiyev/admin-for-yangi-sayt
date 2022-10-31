@@ -23,8 +23,7 @@
             type="button">Malumot Qo'shish</button>
         </router-link>
       </div>
-      <div class="h-full w-full">
-        <p class="text-xl my-6">Fakultet Malumotlari</p>
+      <div class="h-full w-full mt-4">
         <div class="overflow-auto p-5 bg-white rounded-lg shadow hidden md:block">
           <table class="w-full">
             <thead class="bg-gray-100">

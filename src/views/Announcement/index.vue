@@ -56,14 +56,13 @@
                                         </button>
 
 
-                                        <button @click="deleteData(user.id)" type="button"
-                                            class="bg-red-400 py-1 px-2 rounded">O'chirish
-                                        </button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                                    <button @click="deleteData(user.id)" type="button"
+                                        class="bg-red-400 py-1 px-2 rounded">O'chirish
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>

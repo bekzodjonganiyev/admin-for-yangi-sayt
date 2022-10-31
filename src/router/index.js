@@ -17,12 +17,15 @@ import CustomersAdd from "../views/Customers/create.vue";
 import CustomersEdit from "../views/Customers/edit.vue";
 import CustomersView from "../views/Customers/view.vue";
 
-import Monitor from "../views/Manitor.vue";
-
 import Orders from "../views/Orders/Orders.vue";
 import OrdersAdd from "../views/Orders/OrdersAdd.vue";
 import OrdersEdit from "../views/Orders/OrdersEdit.vue";
 import OrdersView from "../views/Orders/OrdersView.vue";
+
+import Departments from "../views/Departments/index.vue"
+import DepartmentsAdd from "../views/Departments/create.vue"
+import DepartmentsEdit from "../views/Departments/edit.vue"
+import DepartmentsView from "../views/Departments/view.vue"
 
 import Settings from "../views/Settings.vue";
 import Profil from "../views/Profil.vue";
@@ -96,10 +99,29 @@ const router = createRouter({
       component: Login,
     },
     {
-      path: "/monitor",
-      name: "monitor",
-      component: Monitor,
+      path: "/departments",
+      name: "departments",
+      component: Departments,
     },
+
+    {
+      path: "/departments/create",
+      name: "departments.create",
+      component: DepartmentsAdd,
+    },
+
+    {
+      path: "/departments/edit/:id",
+      name: "departments.edit",
+      component: DepartmentsEdit,
+    },
+
+    {
+      path: "/departments/view/:id",
+      name: "departments.view",
+      component: DepartmentsView,
+    },
+
     {
       path: "/settings",
       name: "settings",
