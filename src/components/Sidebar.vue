@@ -33,7 +33,7 @@
           <span>Faoliyat</span>
         </RouterLink>
 
-        <RouterLink to="/monitor" class="font-semibold flex mb-7">
+        <RouterLink to="/departments" class="font-semibold flex mb-7">
           <BolimlarIcon/>
           <span>Bo'limlar</span>
         </RouterLink>
