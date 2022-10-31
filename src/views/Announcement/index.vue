@@ -29,6 +29,8 @@
                             <thead class="bg-gray-100">
                                 <tr>
                                     <th class="w-32 text-zinc-400 p-3 text-sm font-semibold tracking-wide text-left">
+                                        Rasm</th>
+                                    <th class="w-32 text-zinc-400 p-3 text-sm font-semibold tracking-wide text-left">
                                         Sarlavha</th>
                                     <th class="w-32 text-zinc-400 p-3 text-sm font-semibold tracking-wide text-left">
                                         Kontent</th>
@@ -38,11 +40,13 @@
                             </thead>
                             <tbody class="divide-y divide-gray-100">
                                 <tr v-for="(user, index) in users" :key="index" class="bg-white">
+                                    <td class="p-3 text-sm text-gray-700 whitespce-nowrap"><img class="w-10 rounded" v-bind:src="user.photo" alt=""></td>
                                     <td class="p-3 text-sm text-gray-700 whitespce-nowrap">{{ user.title_uz }}</td>
-                                    <td class="p-3 text-sm text-gray-700 whitespce-nowrap">{{ user.title_uz }}</td>
+                                    <td class="p-3 text-sm text-gray-700 whitespce-nowrap">{{ user.body_uz }}</td>
                                     <td>
                                         <button type="button" class="mr-2 bg-orange-400 py-1 px-2 rounded">
-                                            <router-link :to="{ name: 'users.edit', params: { id: user._id } }">Tahrirlash
+                                            <router-link :to="{ name: 'users.edit', params: { id: user._id } }">
+                                                Tahrirlash
                                             </router-link>
                                         </button>
 
