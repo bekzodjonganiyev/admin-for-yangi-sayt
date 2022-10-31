@@ -23,7 +23,7 @@
     
                         <InputComponent required class="w-full" name="yangilik kiritilgan vaqti" type="date" v-model="date" />
     
-                        <InputComponent required class="w-full" type="file" name="yangilik rasmi" v-model="newsImg" />
+                        <InputComponent required class="w-full" type="file" name="yangilik rasmi" v-model="yangilik.newsImg" />
 
     
                     </div>

@@ -17,7 +17,7 @@
                             class="placeholder:text-slate-400 block bg-white w-96 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm"
                             placeholder="Qidiring" type="text" name="search" />
                     </label>
-                    <router-link to="/user/create">
+                    <router-link to="/users/create">
                         <button
                             class="bg-blue-800 text-white active:bg-blue-400 font-bold text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150">E'lon
                             Qo'shish</button>
@@ -88,7 +88,7 @@ export default {
             })
         },
         deleteData(id) {
-            if (confirm('This element will be delete!!! ⚠⚠⚠')) {
+            if (confirm("e'lonni o'chirish !!!")) {
                 http.delete(`/custom-user/${id}/delete/`).then(() => {
                     this.getData()
                 })

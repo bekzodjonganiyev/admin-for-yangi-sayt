@@ -6,25 +6,25 @@
                     <div class="space-y-6 announcement">
                         <h1 class="Announcement-info">e'lon o'zbek tilida tahrirlash</h1>
                         <hr />
-                        <InputComponent required class="w-full" name="Yangilik nomi uz" v-model="elon.title_uz" />
-                        <TextAreaComponents required class="w-full" v-model="elon.body_uz" name="Yangilik matni uz" />
+                        <InputComponent required class="w-full" name="e'lon nomi uz" v-model="elon.title_uz" />
+                        <TextAreaComponents required class="w-full" v-model="elon.body_uz" name="e'lon matni uz" />
 
                     <h1 class="Announcement-info">e'lon rus tilida tahrirlash</h1>
                     <hr />
-                    <InputComponent required class="w-full" name="Yangilik nomi ru" v-model="elon.title_ru" />
-                    <TextAreaComponents required class="w-full" v-model="elon.body_ru" name="Yangilik matni ru" />
+                    <InputComponent required class="w-full" name="e'lon nomi ru" v-model="elon.title_ru" />
+                    <TextAreaComponents required class="w-full" v-model="elon.body_ru" name="e'lon matni ru" />
                     
                     <h1 class="Announcement-info">e'lon ingliz tilida tahrirlash</h1>
                     <hr />
 
-                    <InputComponent required class="w-full" name="Yangilik nomi eng" v-model="elon.title_eng" />
-                    <TextAreaComponents required class="w-full" v-model="elon.body_eng" name="Yangilik matni eng" />
+                    <InputComponent required class="w-full" name="e'lon nomi eng" v-model="elon.title_eng" />
+                    <TextAreaComponents required class="w-full" v-model="elon.body_eng" name="e'lon matni eng" />
                     
                     <div class="Announcement-date ">
                     
                         <InputComponent required class="w-full" name="e'lon kiritilgan vaqti" type="date" v-model="elon.date" />
                     
-                        <!-- <InputComponent required class="w-full" type="file" name="e'lon rasmi" v-model="AnnouncementImg" /> -->
+                        <InputComponent required class="w-full" type="file" name="e'lon rasmi" v-model="elon.announcementImg" />
                     
                     </div>
 
@@ -69,7 +69,8 @@ export default {
                 body_uz: "",
                 body_ru: "",
                 body_eng: "",
-                data:""
+                data:"",
+                photo:"",
             }
         }
     },
@@ -84,6 +85,7 @@ export default {
                     body_uz: this.elon.body_uz,
                     body_ru: this.elon.body_ru,
                     body_en: this.elon.body_eng,
+                    photo: this.elon.announcementImg
                 }
             ).then((res) => {
                 this.xabar()
@@ -93,7 +95,7 @@ export default {
             })
         },
         xabar() {
-            alert("yangi element qo`shidi")
+            alert("e'lon tahrirlansinmi ???")
             this.$router.push('/users')
         }
     },
