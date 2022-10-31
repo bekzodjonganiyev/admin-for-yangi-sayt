@@ -4,6 +4,7 @@ import Dashboard from "../views/Dashboard.vue";
 import Announcement from "../views/Announcement/index.vue";
 import AnnouncementEdit from "../views/Announcement/edit.vue";
 import AnnouncementAdd from "../views/Announcement/create.vue";
+import AnnouncementView from "../views/Announcement/view.vue"
 
 import Paper from "../views/paper/index.vue"
 import Items from "../views/Products/index.vue";
@@ -33,6 +34,7 @@ import Login from "../views/MainPage/Login.vue";
 import News from "../views/News/index.vue";
 import NewsCreate from "../views/News/create.vue";
 import NewsEdit from "../views/News/edit.vue";
+import NewsView from "../views/News/view.vue"
 
 const router = createRouter({
   history: createWebHistory(),
@@ -133,9 +135,14 @@ const router = createRouter({
       component: Announcement,
     },
     {
-      path: "/user/create",
-      name: "user.create",
+      path: "/users/create",
+      name: "users.create",
       component: AnnouncementAdd,
+    },
+    {
+      path: "/user/view/:id",
+      name: "user.view",
+      component: AnnouncementView,
     },
     {
       path: "/users/edit/:id",
@@ -186,9 +193,14 @@ const router = createRouter({
     },
 
     {
-      path: "/news/edit",
+      path: "/news/edit/:id",
       name: "news.edit",
       component: NewsEdit,
+    },
+    {
+      path: "/news/view/:id",
+      name: "news.view",
+      component: NewsView,
     },
   ],
 });

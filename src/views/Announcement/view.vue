@@ -4,37 +4,38 @@
             <div class="my-8 mx-40 rounded-xl drop-shadow-md pt-20 pb-20 bg-white">
                 <div class="flex justify-evenly w-full">
                     <div class="space-y-6 announcement">
-                        <h1 class="Announcement-info">e'lon o'zbek tilida tahrirlash</h1>
+                        <h1 class="Announcement-info">e'lon o'zbek tilida ko'rish</h1>
                         <hr />
-                        <InputComponent required class="w-full" name="e'lon nomi uz" v-model="elon.title_uz" />
-                        <TextAreaComponents required class="w-full" v-model="elon.body_uz" name="e'lon matni uz" />
+                        <InputComponent required class="w-full" name="E'lon nomi uz" v-model="elon.title_uz" />
+                        <TextAreaComponents required class="w-full" v-model="elon.body_uz" name="E'lon matni uz" />
 
-                    <h1 class="Announcement-info">e'lon rus tilida tahrirlash</h1>
-                    <hr />
-                    <InputComponent required class="w-full" name="e'lon nomi ru" v-model="elon.title_ru" />
-                    <TextAreaComponents required class="w-full" v-model="elon.body_ru" name="e'lon matni ru" />
-                    
-                    <h1 class="Announcement-info">e'lon ingliz tilida tahrirlash</h1>
-                    <hr />
+                        <h1 class="Announcement-info">e'lon rus tilida ko'rish</h1>
+                        <hr />
+                        <InputComponent required class="w-full" name="E'lon nomi ru" v-model="elon.title_ru" />
+                        <TextAreaComponents required class="w-full" v-model="elon.body_ru" name="E'lon matni ru" />
 
-                    <InputComponent required class="w-full" name="e'lon nomi eng" v-model="elon.title_eng" />
-                    <TextAreaComponents required class="w-full" v-model="elon.body_eng" name="e'lon matni eng" />
-                    
-                    <div class="Announcement-date ">
-                    
-                        <InputComponent required class="w-full" name="e'lon kiritilgan vaqti" type="date" v-model="elon.date" />
-                    
-                        <InputComponent required class="w-full" type="file" name="e'lon rasmi" v-model="elon.announcementImg" />
-                    
+                        <h1 class="Announcement-info">e'lon ingliz tilida ko'rish</h1>
+                        <hr />
+
+                        <InputComponent required class="w-full" name="E'lon nomi eng" v-model="elon.title_eng" />
+                        <TextAreaComponents required class="w-full" v-model="elon.body_eng" name="E'lon matni eng" />
+
+                        <div class="Announcement-date ">
+
+                            <InputComponent required class="w-full" name="e'lon kiritilgan vaqti" type="date"
+                                v-model="date" />
+
+                            <InputComponent required class="w-full" type="file" name="e'lon rasmi" v-model="elon.announcementImg" />
+
+                        </div>
+
                     </div>
 
                 </div>
-                    
-                </div>
-               
+
                 <div class="Announcement-btn">
-                
-                
+
+
                     <button type="submit"
                         class="   bg-blue-800 text-white font-bold px-7 py-4 rounded-md cursor-pointer active:bg-blue-500">yuklash
                     </button>
@@ -69,8 +70,7 @@ export default {
                 body_uz: "",
                 body_ru: "",
                 body_eng: "",
-                data:"",
-                photo:"",
+                announcementImg:"",
             }
         }
     },
@@ -95,7 +95,7 @@ export default {
             })
         },
         xabar() {
-            alert("e'lon tahrirlansinmi ???")
+            alert("yangi element qo`shidi")
             this.$router.push('/users')
         }
     },

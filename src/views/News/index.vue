@@ -16,7 +16,7 @@
             class="placeholder:text-slate-400 block bg-white w-96 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm"
             placeholder="Qidiring" type="text" name="search" />
         </label>
-        <router-link to="/customers/create">
+        <router-link to="/news/create">
           <button
             class="bg-blue-800 text-white active:bg-blue-400 font-bold text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
             type="button">Yangilik Qo'shish</button>
@@ -27,21 +27,23 @@
           <table class="w-full">
             <thead class="bg-gray-100">
               <tr>
-                <th class="w-32 text-zinc-400 p-3 text-sm font-semibold tracking-wide text-left">Sarlavha</th>
-                <th class="w-32 text-zinc-400 p-3 text-sm font-semibold tracking-wide text-left">Kontent</th>
-                <th class="w-32 text-zinc-400 p-3 text-sm font-semibold tracking-wide text-left">Amallar</th>
+                <th class="w-40 text-zinc-400 p-3 text-sm font-semibold tracking-wide text-left">Rasm</th>
+                <th class="w-40 text-zinc-400 p-3 text-sm font-semibold tracking-wide text-left">Sarlavha</th>
+                <th class="w-40 text-zinc-400 p-3 text-sm font-semibold tracking-wide text-left">Kontent</th>
+                <th class="w-20 text-zinc-400 p-3 text-sm font-semibold tracking-wide text-left">Amallar</th>
               </tr>
             </thead>
             <tbody class="divide-y divide-gray-100">
-              <tr v-for="(customer, index) in customers" :key="index" class="bg-white">
+              <tr v-for="(customer, index) in customers" :key="index" class="bg-white ">
+                <td class="p-3 text-sm text-gray-700 whitespce-nowrap"><img class="w-10 rounded" v-bind:src="customer.photo" alt=""></td>
                 <td class="p-3 text-sm text-gray-700 whitespce-nowrap">{{ customer.title_uz }}</td>
-                <td class="p-3 text-sm text-gray-700 whitespce-nowrap">{{ customer.title_en }}</td>
-                <td class="flex">
+                <td class="p-3 text-sm text-gray-700 whitespce-nowrap">{{ customer.body_uz }}</td>
+                <td class="flex items-end">
                   <button type="button" class="mr-2 bg-orange-400 py-1 px-2 rounded">
-                    <RouterLink :to="{ name: 'customers.edit', params: { id: customer._id } }">Tahrirlash</RouterLink>
+                    <RouterLink :to="{ name: 'news.edit', params: { id: customer._id } }">Tahrirlash</RouterLink>
                   </button>
                   <button type="button" class="mr-2 bg-blue-400 py-1 px-2 rounded">
-                    <router-link :to="{ name: 'customers.view', params: { id: customer._id } }">Ko'rish</router-link>
+                    <router-link :to="{ name: 'news.view', params: { id: customer._id } }">Ko'rish</router-link>
                   </button>
                   <button type="button" @click="deleteData(customer.id)"
                     class="bg-red-400 py-1 px-2 rounded">O'chirish</button>
@@ -55,39 +57,40 @@
   </Layout>
 </template> 
 <script>
-import Layout from '../../components/Layout.vue';
-import { http } from '../../utils/http';
-export default {
-  components: {
-    Layout,
-  },
-  data() {
-    return {
-      customers: [],
-    }
-  },
-  methods: {
-    getData() {
-      http.get('/news/all').then((response) => {
-        this.customers = response.data.data;
-      }).catch(error => {
-        console.log(error);
-      })
+  import Layout from '../../components/Layout.vue';
+  import { http } from '../../utils/http';
+  export default {
+    components: {
+      Layout,
     },
-    deleteData(id) {
-      if (confirm('This element will be delete!!! ⚠⚠⚠')) {
-        http.delete(`/client/${id}/delete/`).then(() => {
-          this.getData()
-        })
+    data() {
+      return {
+        customers: [],
       }
     },
-  },
-  created: function () {
-    this.getData()
+    methods: {
+      getData() {
+        http.get('/news/all').then((response) => {
+          this.customers = response.data.data;
+          console.log(this.customers);
+        }).catch(error => {
+          console.log(error);
+        })
+      },
+      deleteData(id) {
+        if (confirm('This element will be delete!!! ⚠⚠⚠')) {
+          http.delete(`/client/${id}/delete/`).then(() => {
+            this.getData()
+          })
+        }
+      },
+    },
+    created: function () {
+      this.getData()
+    }
   }
-}
-
-</script>
+  
+  </script>
   
   
   

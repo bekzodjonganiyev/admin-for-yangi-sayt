@@ -70,7 +70,7 @@ export default {
     },
     methods: {
         postData() {
-            http.post('/custom-user/create/',
+            http.post('/news/add',
                 {
                     AnnouncementName_uz: this.organizatiosdssn,
                     AnnouncementName_ru: this.phone,
@@ -96,7 +96,7 @@ export default {
 </script>
 <style>
 .announcement{
-    width:80vw;
+    width:60vw;
     margin: 0 50px;
 }
 .Announcement-date{
