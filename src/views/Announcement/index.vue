@@ -40,7 +40,8 @@
                             </thead>
                             <tbody class="divide-y divide-gray-100">
                                 <tr v-for="(user, index) in users" :key="index" class="bg-white">
-                                    <td class="p-3 text-sm text-gray-700 whitespce-nowrap"><img class="w-10 rounded" v-bind:src="user.photo" alt=""></td>
+                                    <td class="p-3 text-sm text-gray-700 whitespce-nowrap"><img class="w-10 rounded"
+                                            v-bind:src="user.photo" alt=""></td>
                                     <td class="p-3 text-sm text-gray-700 whitespce-nowrap">{{ user.title_uz }}</td>
                                     <td class="p-3 text-sm text-gray-700 whitespce-nowrap">{{ user.body_uz }}</td>
                                     <td>
@@ -56,13 +57,14 @@
                                         </button>
 
 
-                                    <button @click="deleteData(user.id)" type="button"
-                                        class="bg-red-400 py-1 px-2 rounded">O'chirish
-                                    </button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                                        <button @click="deleteData(user.id)" type="button"
+                                            class="bg-red-400 py-1 px-2 rounded">O'chirish
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
