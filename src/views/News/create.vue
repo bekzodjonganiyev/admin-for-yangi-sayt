@@ -111,7 +111,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .news {
     width: 50vw;
     margin: 0 50px;
