@@ -18,13 +18,14 @@
                         <hr />
                         <InputComponent required class="w-full" name="E'lon nomi eng" v-model="elon.title_eng" />
                         <TextAreaComponents required class="w-full" v-model="elon.body_eng" name="E'lon matni eng" />
-                        
+
                         <div class="Announcement-date ">
 
                             <InputComponent required class="w-full" name="e'lon kiritilgan vaqti" type="date"
-                                v-model="date" />
+                                v-model="elon.date" />
 
-                            <InputComponent required class="w-full" type="file" name="e'lon rasmi" v-model="elon.announcementImg" />
+                            <!-- <InputComponent required class="w-full" type="file" name="e'lon rasmi" v-model="elon.announcementImg" /> -->
+                            <input type="file" @change="onFileUpload">
 
                         </div>
                     </div>
@@ -64,30 +65,36 @@ export default {
                 body_uz: "",
                 body_ru: "",
                 body_eng: "",
-                data:"",
-                announcementImg:""
+                date: "",
+                FILE: null
             }
         }
     },
     methods: {
-        postData() {
-            http.post('/elon/add',
-                {
-                    title_uz: this.elon.title_uz,
-                    title_ru: this.elon.title_ru,
-                    title_en: this.elon.title_eng,
-                    body_uz: this.elon.body_uz,
-                    body_ru: this.elon.body_ru,
-                    body_en: this.elon.body_eng,
-                    photo: this.announcementImg,
+        onFileUpload(event) {
+            this.elon.FILE = event.target.files[0]
+        },
 
-                }
+        postData() {
+            const formData = new FormData()
+            formData.append("title_uz", this.elon.title_uz)
+            formData.append("title_ru", this.elon.title_ru)
+            formData.append("title_en", this.elon.title_eng)
+            formData.append("body_uz", this.elon.body_uz)
+            formData.append("body_ru", this.elon.body_ru)
+            formData.append("body_eb", this.elon.body_eng)
+            formData.append("date", this.elon.date)
+            formData.append("photo", this.elon.FILE, this.elon.FILE.name)
+
+            http.post('/elon/add',formData
             ).then((res) => {
                 this.xabar()
                 console.log(res)
             }).catch((err) => {
                 console.log(err)
             })
+
+            console.log(formData)
         },
         xabar() {
             alert("yangi element qo`shidi")
@@ -100,7 +107,7 @@ export default {
 </script>
 <style>
 .announcement {
-    width: 50vw;
+    width: 40vw;
     margin: 0 50px;
 }
 
@@ -121,7 +128,7 @@ export default {
 .Announcement-btn {
     display: flex;
     margin: 20px 50px;
-   
+
     gap: 15px;
 
 }
