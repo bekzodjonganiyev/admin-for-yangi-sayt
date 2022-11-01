@@ -82,7 +82,7 @@ export default {
             formData.append("title_en", this.elon.title_eng)
             formData.append("body_uz", this.elon.body_uz)
             formData.append("body_ru", this.elon.body_ru)
-            formData.append("body_eb", this.elon.body_eng)
+            formData.append("body_en", this.elon.body_eng)
             formData.append("date", this.elon.date)
             formData.append("photo", this.elon.FILE, this.elon.FILE.name)
 
@@ -105,9 +105,9 @@ export default {
     }
 }
 </script>
-<style>
+<style scoped>
 .announcement {
-    width: 40vw;
+    width: 50vw;
     margin: 0 50px;
 }
 
@@ -128,7 +128,6 @@ export default {
 .Announcement-btn {
     display: flex;
     margin: 20px 50px;
-
     gap: 15px;
 
 }
