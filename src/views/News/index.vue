@@ -35,7 +35,7 @@
             </thead>
             <tbody class="divide-y divide-gray-100">
               <tr v-for="(customer, index) in customers" :key="index" class="bg-white ">
-                <td class="p-3 text-sm text-gray-700 whitespce-nowrap"><img class="w-10 rounded" v-bind:src="customer.photo" alt=""></td>
+                <td class="p-3 text-sm text-gray-700 whitespce-nowrap"><img class="w-10 rounded" v-bind:src="'http://localhost:4000/public/uploads/'+customer.photo" alt=""></td>
                 <td class="p-3 text-sm text-gray-700 whitespce-nowrap">{{ customer.title_uz }}</td>
                 <td class="p-3 text-sm text-gray-700 whitespce-nowrap">{{ customer.body_uz }}</td>
                 <td class="flex items-end">

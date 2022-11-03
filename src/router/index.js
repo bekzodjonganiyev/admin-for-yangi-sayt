@@ -27,6 +27,9 @@ import DepartmentsAdd from "../views/Departments/create.vue"
 import DepartmentsEdit from "../views/Departments/edit.vue"
 import DepartmentsView from "../views/Departments/view.vue"
 
+import Syllabus from "../views/Syllabus/index.vue"
+import SyllabusAdd from "../views/Syllabus/create.vue"
+
 import Settings from "../views/Settings.vue";
 import Profil from "../views/Profil.vue";
 import Login from "../views/MainPage/Login.vue";
@@ -120,6 +123,18 @@ const router = createRouter({
       path: "/departments/view/:id",
       name: "departments.view",
       component: DepartmentsView,
+    },
+
+    {
+      path: "/syllabus",
+      name:"syllabus",
+      component:Syllabus
+    },
+
+    {
+      path:"/syllabus/create",
+      name:"syllabus.create",
+      component:SyllabusAdd
     },
 
     {

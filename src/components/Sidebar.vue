@@ -14,42 +14,47 @@
       <!-- RuterLinks -->
       <div class="flex flex-col text-slate-300 m-4 ml-10 w-36 sm:">
         <RouterLink to="/dashboard" class="font-semibold flex mb-7">
-          <DashboardIcon/>
+          <DashboardIcon />
           <span class="d-flex block">Analitika</span>
         </RouterLink>
 
         <RouterLink to="/customers" class="font-semibold flex mb-7">
-          <FakultetIcon/>
+          <FakultetIcon />
           <span>Fakultetlar</span>
         </RouterLink>
 
         <RouterLink to="/items" class="font-semibold flex mb-7">
-          <KafedralarIcon/>
+          <KafedralarIcon />
           <span>Kafedralar</span>
         </RouterLink>
 
         <RouterLink to="/orders" class="font-semibold flex mb-7">
-          <FaoliyatIcon/>
+          <FaoliyatIcon />
           <span>Faoliyat</span>
         </RouterLink>
 
         <RouterLink to="/departments" class="font-semibold flex mb-7">
-          <BolimlarIcon/>
+          <BolimlarIcon />
           <span>Bo'limlar</span>
         </RouterLink>
 
+        <RouterLink to="/syllabus" class="font-semibold flex mb-7">
+          <ElonlarIcon />
+          <span>Sillabus</span>
+        </RouterLink>
+
         <RouterLink to="/users" class="font-semibold flex mb-7">
-          <ElonlarIcon/>
+          <ElonlarIcon />
           <span>E'lon</span>
         </RouterLink>
 
         <RouterLink to="/news" class="font-semibold flex mb-7">
-          <ElonlarIcon/>
+          <ElonlarIcon />
           <span>Yangiliklar</span>
         </RouterLink>
 
         <RouterLink to="/settings" class="font-semibold flex mb-7">
-          <YangiliklarIcon/>
+          <YangiliklarIcon />
           <span>Sozlamalar</span>
         </RouterLink>
 
