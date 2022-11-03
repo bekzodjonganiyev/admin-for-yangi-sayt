@@ -7,20 +7,21 @@ import AnnouncementAdd from "../views/Announcement/create.vue";
 import AnnouncementView from "../views/Announcement/view.vue"
 
 import Paper from "../views/paper/index.vue"
-import Items from "../views/Products/index.vue";
-import salom from "../views/Products/create.vue";
-import ItemEdit from "../views/Products/edit.vue";
+
+import Items from "../views/Kafedralar/index.vue";
+import salom from "../views/Kafedralar/create.vue";
+import ItemEdit from "../views/Kafedralar/edit.vue";
 import ProductItem from "../views/ProductItem.vue";
 
-import Customers from "../views/Customers/index.vue";
-import CustomersAdd from "../views/Customers/create.vue";
-import CustomersEdit from "../views/Customers/edit.vue";
-import CustomersView from "../views/Customers/view.vue";
+import Customers from "../views/Faculties/index.vue";
+import CustomersAdd from "../views/Faculties/create.vue";
+import CustomersEdit from "../views/Faculties/edit.vue";
+import CustomersView from "../views/Faculties/view.vue";
 
-import Orders from "../views/Orders/Orders.vue";
-import OrdersAdd from "../views/Orders/OrdersAdd.vue";
-import OrdersEdit from "../views/Orders/OrdersEdit.vue";
-import OrdersView from "../views/Orders/OrdersView.vue";
+import Orders from "../views/Activities/Orders.vue";
+import OrdersAdd from "../views/Activities/OrdersAdd.vue";
+import OrdersEdit from "../views/Activities/OrdersEdit.vue";
+import OrdersView from "../views/Activities/OrdersView.vue";
 
 import Departments from "../views/Departments/index.vue"
 import DepartmentsAdd from "../views/Departments/create.vue"

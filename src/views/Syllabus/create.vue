@@ -2,70 +2,82 @@
     <Layout>
         <form @submit.prevent="postData">
             <div class="my-8 mx-40 rounded-xl drop-shadow-md pt-20 pb-20 bg-white">
-                <div class="flex justify-evenly w-full">
                     <div class="space-y-6 news">
-                        <h1 class="news-info">Nimadir uz</h1>
+                        <h1 class="news-info">Syllabusni Kiriting</h1>
                         <hr />
-                        <InputComponent required class="w-full" name="Yangilik nomi uz"  />
-                        <InputComponent required class="w-full" name="Yangilik nomi uz"  />
-                        <InputComponent required class="w-full" name="Yangilik nomi uz"  />
-                        <InputComponent required class="w-full" name="Yangilik nomi uz"  />
-                        <InputComponent required class="w-full" name="Yangilik nomi uz"  />
-                        <InputComponent required class="w-full" name="Yangilik nomi uz"  />
-                        <InputComponent required class="w-full" name="Yangilik nomi uz"  />
-                        <InputComponent required class="w-full" name="Yangilik nomi uz"  />
-                        <InputComponent required class="w-full" name="Yangilik nomi uz"  />
-                        <InputComponent required class="w-full" name="Yangilik nomi uz"  />
-                        <InputComponent required class="w-full" name="Yangilik nomi uz"  />
-                        <InputComponent required class="w-full" name="Yangilik nomi uz"  />
-                        <InputComponent required class="w-full" name="Yangilik nomi uz"  />
-                        <InputComponent required class="w-full" name="Yangilik nomi uz"  />
-                        <InputComponent required class="w-full" name="Yangilik nomi uz"  />
+                        <!-- Year -->
+                        <label>Talim yilni tanlang</label>
+                        <select
+                            class="bg-white border border-slate-300 rounded-md py-2 pl-2 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm w-full select"
+                            v-model="education.year">
+                            <option class="text-black" v-for="(year, index) in years" :value="year.id" :key="index">
+                                {{ year.text }}
+                            </option>
+                        </select>
 
-                        <h1 class="news-info">Nimadir ru</h1>
-                        <hr />
-                        <InputComponent required class="w-full" name="Yangilik nomi ru"  />
-                        <InputComponent required class="w-full" name="Yangilik nomi ru"  />
-                        <InputComponent required class="w-full" name="Yangilik nomi ru"  />
-                        <InputComponent required class="w-full" name="Yangilik nomi ru"  />
-                        <InputComponent required class="w-full" name="Yangilik nomi ru"  />
-                        <InputComponent required class="w-full" name="Yangilik nomi ru"  />
-                        <InputComponent required class="w-full" name="Yangilik nomi ru"  />
-                        <InputComponent required class="w-full" name="Yangilik nomi ru"  />
-                        <InputComponent required class="w-full" name="Yangilik nomi ru"  />
-                        <InputComponent required class="w-full" name="Yangilik nomi ru"  />
-                        <InputComponent required class="w-full" name="Yangilik nomi ru"  />
-                        <InputComponent required class="w-full" name="Yangilik nomi ru"  />
-                        <InputComponent required class="w-full" name="Yangilik nomi ru"  />
-                        <InputComponent required class="w-full" name="Yangilik nomi ru"  />
-                        <InputComponent required class="w-full" name="Yangilik nomi ru"  />
+                        <!-- Type -->
+                        <label>Talim turini tanlang</label>
+                        <select
+                            class="bg-white border border-slate-300 rounded-md py-2 pl-2 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm w-full select"
+                            v-model="education.type">
+                            <option class="text-black" v-for="(type, index) in types" :value="type" :key="index">
+                                {{ type }}
+                            </option>
+                        </select>
 
-                        <h1 class="news-info">Nimadir eng</h1>
-                        <hr />
-                        <InputComponent required class="w-full" name="Yangilik nomi eng"  />
-                        <InputComponent required class="w-full" name="Yangilik nomi eng"  />
-                        <InputComponent required class="w-full" name="Yangilik nomi eng"  />
-                        <InputComponent required class="w-full" name="Yangilik nomi eng"  />
-                        <InputComponent required class="w-full" name="Yangilik nomi eng"  />
-                        <InputComponent required class="w-full" name="Yangilik nomi eng"  />
-                        <InputComponent required class="w-full" name="Yangilik nomi eng"  />
-                        <InputComponent required class="w-full" name="Yangilik nomi eng"  />
-                        <InputComponent required class="w-full" name="Yangilik nomi eng"  />
-                        <InputComponent required class="w-full" name="Yangilik nomi eng"  />
-                        <InputComponent required class="w-full" name="Yangilik nomi eng"  />
-                        <InputComponent required class="w-full" name="Yangilik nomi eng"  />
-                        <InputComponent required class="w-full" name="Yangilik nomi eng"  />
-                        <InputComponent required class="w-full" name="Yangilik nomi eng"  />
-                        <InputComponent required class="w-full" name="Yangilik nomi eng"  />
+                        <!-- Degree -->
+                        <label>Talim darajasini tanlang</label>
+                        <select
+                            class="bg-white border border-slate-300 rounded-md py-2 pl-2 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm w-full select"
+                            v-model="education.degree">
+                            <option class="text-black" v-for="(degree, index) in degrees" :value="degree" :key="index">
+                                {{ degree }}
+                            </option>
+                        </select>
 
+                        <!-- Faculty -->
+                        <label>Fakultetni tanlang</label>
+                        <select
+                            class="bg-white border border-slate-300 rounded-md py-2 pl-2 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm w-full select"
+                            v-model="education.faculty">
+                            <option class="text-black" v-for="(faculty, index) in faculties" :value="faculty.title_uz"
+                                :key="index">
+                                {{ faculty.title_uz }}
+                            </option>
+                        </select>
+
+                        <!-- Kafedra -->
+                        <label>Kafedrani tanlang</label>
+                        <select
+                            class="bg-white border border-slate-300 rounded-md py-2 pl-2 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm w-full select"
+                            v-model="education.kafedra">
+                            <option class="text-black" v-for="(kafedra, index) in kaferdas" :value="kafedra.title_uz"
+                                :key="index">
+                                {{ kafedra.title_uz }}
+                            </option>
+                        </select>
+
+                        <!-- Direction -->
+                        <label>Yo'nalishnni tanlang</label>
+                        <select
+                            class="bg-white border border-slate-300 rounded-md py-2 pl-2 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm w-full select"
+                            v-model="education.direction">
+                            <option class="text-black" v-for="(direction, index) in directions" :value="direction"
+                                :key="index">
+                                {{ direction }}
+                            </option>
+                        </select>
+                        <InputComponent required class="w-full" name="Syllabusni yuklang" type="file" @change="onFileUpload"/>
+                        <button type="submit" class="bg-blue-800 text-white font-bold px-7 py-4 rounded-md cursor-pointer active:bg-blue-500">Yuklash</button>
                     </div>
-                </div>
             </div>
         </form>
     </Layout>
 </template>
 
 <script>
+import { http } from '../../utils/http';
+
 import Layout from '../../components/Layout.vue';
 import InputComponent from '../../components/InputComponent.vue';
 export default {
@@ -73,5 +85,88 @@ export default {
         Layout,
         InputComponent
     },
+
+    data() {
+        return {
+            education: {
+                year: "",
+                type: "",
+                degree: "",
+                faculty: "",
+                kafedra: "",
+                direction: "",
+                file:null
+            },
+            faculties: [],
+            kaferdas: [],
+            years: [
+                { id: 2019, text: "2019-2020" },
+                { id: 2020, text: "2020-2021" },
+                { id: 2021, text: "2021-2022" },
+                { id: 2022, text: "2022-2023" },
+            ],
+            types: [
+                "Kunduzgi",
+                "Kechki",
+                "Sirtqi"
+            ],
+            degrees: [
+                "Bakalavr",
+                "Magistr",
+                "Doktarantura"
+            ],
+            directions:[
+                "Noorganik moddalar kimyoviy texnologiyalar  fakulteti",
+                "Noorganik moddalar kimyoviy texnologiyalar  fakulteti",
+                "Noorganik moddalar kimyoviy texnologiyalar  fakulteti",
+                "Noorganik moddalar kimyoviy texnologiyalar  fakulteti",
+                "Noorganik moddalar kimyoviy texnologiyalar  fakulteti",
+                "Noorganik moddalar kimyoviy texnologiyalar  fakulteti",
+                "Noorganik moddalar kimyoviy texnologiyalar  fakulteti",
+                "Noorganik moddalar kimyoviy texnologiyalar  fakulteti",
+                "Noorganik moddalar kimyoviy texnologiyalar  fakulteti",
+            ]
+        }
+    },
+
+    methods: {
+        onFileUpload(event) {
+            this.education.file = event.target.files[0]
+        },
+
+        getFaculties() {
+            http.get("/Fak_data/all")
+                .then(res => {
+                    this.faculties = res.data.data
+                })
+                .catch(err => {
+                    console.log(error)
+                })
+
+            http.get("/kafedra_data/all")
+                .then(res => {
+                    this.kaferdas = res.data.data
+                })
+                .catch(res => {
+                    console.log(error)
+                })
+        },
+        postData(){
+            console.log(this.education)
+        }
+    },
+
+    created: function () {
+        this.getFaculties()
+    }
 }
 </script>
+<style scoped>
+.select-label {
+    margin-top: 20px !important;
+}
+
+.select {
+    margin-top: 5px !important
+}
+</style>
