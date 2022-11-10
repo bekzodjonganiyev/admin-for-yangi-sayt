@@ -41,7 +41,7 @@
                             <tbody class="divide-y divide-gray-100">
                                 <tr v-for="(user, index) in users" :key="index" class="bg-white">
                                     <td class="p-3 text-sm text-gray-700 whitespce-nowrap"><img class="w-10 rounded"
-                                            v-bind:src="user.photo" alt=""></td>
+                                            v-bind:src="'https://tktiga.herokuapp.com/'+user.photo" alt=""></td>
                                     <td class="p-3 text-sm text-gray-700 whitespce-nowrap">{{ user.title_uz }}</td>
                                     <td class="p-3 text-sm text-gray-700 whitespce-nowrap">{{ user.body_uz }}</td>
                                     <td>

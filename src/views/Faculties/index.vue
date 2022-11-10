@@ -34,15 +34,15 @@
               </tr>
             </thead>
             <tbody class="divide-y divide-gray-100">
-              <tr v-for="(customer, index) in customers" :key="index" class="bg-white">
-                <td class="p-3 text-sm text-gray-700 whitespce-nowrap">{{ customer.name }}</td>
-                <td class="p-3 text-sm text-gray-700 whitespce-nowrap">{{ customer.phone }}</td>
+              <tr v-for="(faculty, index) in customers" :key="index" class="bg-white">
+                <td class="p-3 text-sm text-gray-700 whitespce-nowrap">{{ faculty.name }}</td>
+                <td class="p-3 text-sm text-gray-700 whitespce-nowrap">{{ faculty.phone }}</td>
                 <td class="flex">
                   <button type="button" class="mr-2 bg-orange-400 py-1 px-2 rounded">
-                    <RouterLink :to="{ name: 'customers.edit', params: { id: customer.id } }">Edit</RouterLink>
+                    <!-- <RouterLink :to="{ name: 'customers.edit', params: { id: customer.id } }">Edit</RouterLink> -->
                   </button>
                   <button type="button" class="mr-2 bg-blue-400 py-1 px-2 rounded">
-                    <router-link :to="{ name: 'customers.view', params: { id: customer.id } }">View</router-link>
+                    <!-- <router-link :to="{ name: 'customers.view', params: { id: customer.id } }">View</router-link> -->
                   </button>
                   <button type="button" @click="deleteData(customer.id)"
                     class="bg-red-400 py-1 px-2 rounded">Delete</button>
@@ -69,12 +69,13 @@ export default {
   },
   methods: {
     getData() {
-      http.get('/client/get/').then((response) => {
-        this.customers = response.data;
-        console.log('ooooooooooooooooooooooooooooooooooooooo');
-      }).catch(error => {
-        console.log(error);
-      })
+      http.get("Fak_data/all")
+        .then((res) => {
+          this.customers = res.data.data;
+          console.log(res.data)
+        }).catch(error => {
+          console.log(error);
+        })
     },
     deleteData(id) {
       if (confirm('This element will be delete!!! ⚠⚠⚠')) {
