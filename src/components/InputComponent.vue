@@ -7,6 +7,7 @@
                 class="absolute bottom-8 left-2 bg-white outline-white text-sm text-blue-900 px-1"
             >{{ name }}</label>
             <input
+                required
                 :value="modelValue"
                 @input="$emit('update:modelValue', $event.target.value)"
                 :type="type"

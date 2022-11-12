@@ -174,6 +174,7 @@ export default {
             http.post("daraja/add", formData)
             .then(res => {
                 console.log(res.data)
+                this.$router.push("/syllabus")
             })
             .catch(err => {
                 console.log(err)

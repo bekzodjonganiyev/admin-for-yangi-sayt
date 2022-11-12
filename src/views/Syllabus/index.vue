@@ -29,7 +29,7 @@
                 <tr>
                   <th class="w-32 text-zinc-400 p-3 text-sm font-semibold tracking-wide text-left">Sarlavha</th>
                   <th class="w-32 text-zinc-400 p-3 text-sm font-semibold tracking-wide text-left">Talim Darajasi</th>
-                  <th class="w-32 text-zinc-400 p-3 text-sm font-semibold tracking-wide text-left">O'qish Turi</th>
+                  <th class="w-32 text-zinc-400 p-3 text-sm font-semibold tracking-wide text-left">Talim Turi Turi</th>
                   <th class="w-32 text-zinc-400 p-3 text-sm font-semibold tracking-wide text-left">Yili</th>
                   <th class="w-32 text-zinc-400 p-3 text-sm font-semibold tracking-wide text-left">Amallar</th>
                 </tr>
@@ -37,12 +37,12 @@
               <tbody class="divide-y divide-gray-100">
                 <tr v-for="(degree, index) in syllabus" :key="index" class="bg-white">
                   <td class="p-3 text-sm text-gray-700 whitespce-nowrap">{{ degree.title }}</td>
-                  <td class="p-3 text-sm text-gray-700 whitespce-nowrap">{{ degree.daraja }}</td>
-                  <td class="p-3 text-sm text-gray-700 whitespce-nowrap">{{ degree.oqishTuri }}</td>
+                  <td class="p-3 text-sm text-gray-700 whitespce-nowrap">{{ degree.talim_darajasi }}</td>
+                  <td class="p-3 text-sm text-gray-700 whitespce-nowrap">{{ degree.talim_turi }}</td>
                   <td class="p-3 text-sm text-gray-700 whitespce-nowrap">{{ degree.yili }}</td>
                   <td class="flex items-end">
                     <button class="mr-2 bg-blue-400 py-1 px-2 rounded">Edit</button>
-                    <button class="mr-2 bg-red-400 py-1 px-2 rounded">Delete</button>
+                    <button class="mr-2 bg-red-400 py-1 px-2 rounded" @click="deleteData(degree._id)">Delete</button>
                   </td>
                 </tr>
               </tbody>
@@ -75,7 +75,7 @@
       },
       deleteData(id) {
         if (confirm('This element will be delete!!! ⚠⚠⚠')) {
-          http.delete(`/client/${id}/delete/`).then(() => {
+          http.delete(`/daraja/${id}`).then(() => {
             this.getData()
           })
         }

@@ -7,33 +7,33 @@
                     <div class="space-y-6 news">
                         <h1 class="news-info">Kafedra o'zbek tilida qo'shish</h1>
                         <hr />
-                        <InputComponent required class="w-full" name="Fakultet nomi" v-model="kafedra.title_uz" />
+                        <InputComponent required class="w-full" name="Kafedra nomi" v-model="kafedra.title_uz" />
                         <TextAreaComponents required class="w-full" v-model="kafedra.haqida_uz"
-                            name="Fakultet haqida" />
+                            name="Kafedra haqida" />
                         <TextAreaComponents required class="w-full" v-model="kafedra.maqsad_uz"
-                            name="Fakultet maqsadi" />
+                            name="Kafedra maqsadi" />
                         <TextAreaComponents required class="w-full" v-model="kafedra.yonalish_uz"
-                            name="Fakultet kafedralari" />
+                            name="Kafedra kafedralari" />
 
                         <h1 class="news-info">Kafedra rus tilida qo'shish</h1>
                         <hr />
-                        <InputComponent required class="w-full" name="Fakultet nomi" v-model="kafedra.title_ru" />
+                        <InputComponent required class="w-full" name="Kafedra nomi" v-model="kafedra.title_ru" />
                         <TextAreaComponents required class="w-full" v-model="kafedra.haqida_ru"
-                            name="Fakultet haqida" />
+                            name="Kafedra haqida" />
                         <TextAreaComponents required class="w-full" v-model="kafedra.maqsad_ru"
-                            name="Fakultet maqsadi" />
+                            name="Kafedra maqsadi" />
                         <TextAreaComponents required class="w-full" v-model="kafedra.yonalish_ru"
-                            name="Fakultet kafedralari" />
+                            name="Kafedra kafedralari" />
 
                         <h1 class="news-info">Kafedra ingliz tilida qo'shish</h1>
                         <hr />
-                        <InputComponent required class="w-full" name="Fakultet nomi" v-model="kafedra.title_en" />
+                        <InputComponent required class="w-full" name="Kafedra nomi" v-model="kafedra.title_en" />
                         <TextAreaComponents required class="w-full" v-model="kafedra.haqida_en"
-                            name="Fakultet haqida" />
+                            name="Kafedra haqida" />
                         <TextAreaComponents required class="w-full" v-model="kafedra.maqsad_en"
-                            name="Fakultet maqsadi" />
+                            name="Kafedra maqsadi" />
                         <TextAreaComponents required class="w-full" v-model="kafedra.yonalish_en"
-                            name="Fakultet kafedralari" />
+                            name="Kafedra kafedralari" />
 
                         <h1 class="news-info">Fakultetni tanlang</h1>
                         <select
@@ -116,6 +116,7 @@ export default {
                 .then(res => {
                     console.log(res.data)
                     alert("Malumotlar qo`shildi")
+                    this.$router.push('/items')
                 })
                 .catch(err => {
                     console.log(err)

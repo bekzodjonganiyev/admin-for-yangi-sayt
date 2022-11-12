@@ -44,7 +44,7 @@
                     <button type="submit"
                         class="   bg-blue-800 text-white font-bold px-7 py-4 rounded-md cursor-pointer active:bg-blue-500">yuklash
                     </button>
-                    <RouterLink to="/news">
+                    <RouterLink to="/customers">
                         <button type="submit"
                             class="  bg-red-500 text-white font-bold px-7 py-4 rounded-md cursor-pointer active:bg-red-400">Ortga</button>
                     </RouterLink>
@@ -106,6 +106,7 @@ export default {
                 .then(res => {
                     console.log(res.data)
                     alert("Malumotlar qo`shildi")
+                    this.$router.push('/customers')
                 })
                 .catch(err => {
                     console.log(err)

@@ -28,23 +28,23 @@
           <table class="w-full">
             <thead class="bg-gray-100">
               <tr>
-                <th class="w-32 text-zinc-400 p-3 text-sm font-semibold tracking-wide text-left">Customer Name</th>
-                <th class="w-32 text-zinc-400 p-3 text-sm font-semibold tracking-wide text-left">Phone Number</th>
-                <th class="w-32 text-zinc-400 p-3 text-sm font-semibold tracking-wide text-left">Options</th>
+                <th class="w-32 text-zinc-400 p-3 text-sm font-semibold tracking-wide text-left">Fakultet nomi</th>
+                <th class="w-32 text-zinc-400 p-3 text-sm font-semibold tracking-wide text-left">Fakultet kafedralari</th>
+                <th class="w-32 text-zinc-400 p-3 text-sm font-semibold tracking-wide text-left">Amallar</th>
               </tr>
             </thead>
             <tbody class="divide-y divide-gray-100">
               <tr v-for="(faculty, index) in customers" :key="index" class="bg-white">
-                <td class="p-3 text-sm text-gray-700 whitespce-nowrap">{{ faculty.name }}</td>
-                <td class="p-3 text-sm text-gray-700 whitespce-nowrap">{{ faculty.phone }}</td>
+                <td class="p-3 text-sm text-gray-700 whitespce-nowrap">{{ faculty.title_uz }}</td>
+                <td class="p-3 text-sm text-gray-700 whitespce-nowrap" >
+                  <p v-for="(kafedra, index) in faculty.kafedras_uz" :key="index">{{kafedra}}</p>
+                </td>
                 <td class="flex">
-                  <button type="button" class="mr-2 bg-orange-400 py-1 px-2 rounded">
-                    <!-- <RouterLink :to="{ name: 'customers.edit', params: { id: customer.id } }">Edit</RouterLink> -->
+                  <button type="button" class="mr-2 bg-orange-400 py-1 px-2 rounded">Tahrirlash
                   </button>
-                  <button type="button" class="mr-2 bg-blue-400 py-1 px-2 rounded">
-                    <!-- <router-link :to="{ name: 'customers.view', params: { id: customer.id } }">View</router-link> -->
+                  <button type="button" class="mr-2 bg-blue-400 py-1 px-2 rounded">Ko'rish
                   </button>
-                  <button type="button" @click="deleteData(customer.id)"
+                  <button type="button" @click="deleteData(faculty._id)"
                     class="bg-red-400 py-1 px-2 rounded">Delete</button>
                 </td>
               </tr>
@@ -79,7 +79,7 @@ export default {
     },
     deleteData(id) {
       if (confirm('This element will be delete!!! ⚠⚠⚠')) {
-        http.delete(`/client/${id}/delete/`).then(() => {
+        http.delete(`Fak_data/${id}`).then(() => {
           this.getData()
         })
       }
