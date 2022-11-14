@@ -13,7 +13,7 @@
                         <TextAreaComponents required class="w-full" v-model="kafedra.maqsad_uz"
                             name="Kafedra maqsadi" />
                         <TextAreaComponents required class="w-full" v-model="kafedra.yonalish_uz"
-                            name="Kafedra kafedralari" />
+                            name="Kafedra yo'nalishlari" />
 
                         <h1 class="news-info">Kafedra rus tilida qo'shish</h1>
                         <hr />
@@ -23,7 +23,7 @@
                         <TextAreaComponents required class="w-full" v-model="kafedra.maqsad_ru"
                             name="Kafedra maqsadi" />
                         <TextAreaComponents required class="w-full" v-model="kafedra.yonalish_ru"
-                            name="Kafedra kafedralari" />
+                            name="Kafedra yo'nalishlari" />
 
                         <h1 class="news-info">Kafedra ingliz tilida qo'shish</h1>
                         <hr />
@@ -33,7 +33,7 @@
                         <TextAreaComponents required class="w-full" v-model="kafedra.maqsad_en"
                             name="Kafedra maqsadi" />
                         <TextAreaComponents required class="w-full" v-model="kafedra.yonalish_en"
-                            name="Kafedra kafedralari" />
+                            name="Kafedra yo'nalishlari" />
 
                         <h1 class="news-info">Fakultetni tanlang</h1>
                         <select

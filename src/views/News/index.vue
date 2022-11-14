@@ -45,7 +45,7 @@
                   <button type="button" class="mr-2 bg-blue-400 py-1 px-2 rounded">
                     <router-link :to="{ name: 'news.view', params: { id: customer._id } }">Ko'rish</router-link>
                   </button>
-                  <button type="button" @click="deleteData(customer.id)"
+                  <button type="button" @click="deleteData(customer._id)"
                     class="bg-red-400 py-1 px-2 rounded">O'chirish</button>
                 </td>
               </tr>
