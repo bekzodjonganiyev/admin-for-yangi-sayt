@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const http = axios.create({
-    baseURL: "https://tktiga.herokuapp.com",
+    baseURL: "http://backend.tkti.uz",
 });
 
 http.interceptors.request.use((config) => {
