@@ -34,7 +34,7 @@ import Dropdown from "../components/Dropdown.vue";
           <!-- The right elements -->
           <div class="flex space-x-3">
                <!-- Product -->
-               <button class="bg-slate-100 text-slate-500 rounded-lg">
+               <button class="bg-slate-100 text-slate-500 rounded-lg p-2">
                     <svg
                          xmlns="http://www.w3.org/2000/svg"
                          class="h-5 w-5"
@@ -64,8 +64,6 @@ import Dropdown from "../components/Dropdown.vue";
                     </svg>
                </button>
 
-               <!-- Profil -->
-               <Dropdown />
           </div>
      </div>
 </template>

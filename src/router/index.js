@@ -100,7 +100,7 @@ const router = createRouter({
     {
       path: "/",
       name: "home",
-      component: Login,
+      component: Dashboard,
     },
     {
       path: "/departments",

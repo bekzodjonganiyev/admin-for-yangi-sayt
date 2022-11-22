@@ -10,11 +10,7 @@
             v-if="isVisible"
             class="absolute mt-2 w-36 left-4 top-8 bg-white rounded-md shadow-xl z-50 text-center"
         >
-            <RouterLink
-                to="/profil"
-                class="block px-4 py-2 text-sm capitalize hover:bg-rose-200"
-            >Profil</RouterLink>
-            <RouterLink to="/" class="block px-4 py-2 text-sm capitalize hover:bg-rose-200">Log out</RouterLink>
+            <button @click="logOut" class="block px-4 py-2 text-sm text-center capitalize hover:bg-rose-200">Log out</button>
         </div>
     </button>
 </template>
@@ -27,6 +23,10 @@ export default {
         };
     },
     methods: {
+        logOut(){
+            document.cookie = `isAuth = ${false}`
+            window.location.reload(false)
+        },
         toggleVisiblity() {
             this.isVisible = !this.isVisible;
         }
