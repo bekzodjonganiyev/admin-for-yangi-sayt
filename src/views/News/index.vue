@@ -34,8 +34,8 @@
               </tr>
             </thead>
             <tbody class="divide-y divide-gray-100">
-              <tr v-for="(customer, index) in customers" :key="index" class="bg-white ">
-                <td class="p-3 text-sm text-gray-700 whitespce-nowrap"><img class="w-10 rounded" v-bind:src="'https://tktiga.herokuapp.com/'+customer.photo" alt=""></td>
+              <tr v-for="(customer, index) in customers" :key="index" class="bg-white">
+                <td class="p-3 text-sm text-gray-700 whitespce-nowrap"><img class="w-10 rounded" v-bind:src="url+'/'+customer.photo.split('public/')[1]" alt=""></td>
                 <td class="p-3 text-sm text-gray-700 whitespce-nowrap">{{ customer.title_uz }}</td>
                 <td class="p-3 text-sm text-gray-700 whitespce-nowrap">{{ customer.body_uz }}</td>
                 <td class="flex items-end">
@@ -66,13 +66,14 @@
     data() {
       return {
         customers: [],
+        url: "http://backend.tkti.uz"
       }
     },
     methods: {
       getData() {
         http.get('/news/all').then((response) => {
           this.customers = response.data.data;
-          console.log(this.customers);
+          console.log(response.data.data[0].photo.split("public/")[1]);
         }).catch(error => {
           console.log(error);
         })

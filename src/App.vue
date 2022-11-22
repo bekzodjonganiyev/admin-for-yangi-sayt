@@ -37,7 +37,7 @@
                <div class="px-5">
                   <h1 class="font-bold py-3 mt-10 text-3xl text-center">Login</h1>
                   <hr />
-                  <input type="number" v-model="phone" placeholder="Phone"
+                  <input type="tel" v-model="phone" placeholder="Phone"
                      class="border w-full border-gray-400 px-2 py-2 my-3 placeholder-blueGray-300 text-blueGray-600 relative bg-white rounded text-md shadow outline-none focus:outline-none focus:shadow-outline" />
                   <input type="password" v-model="password" placeholder="Password"
                      class="border w-full border-gray-400 px-2 py-2 my-3 placeholder-blueGray-300 text-blueGray-600 relative bg-white rounded text-md shadow outline-none focus:outline-none focus:shadow-outline" />
