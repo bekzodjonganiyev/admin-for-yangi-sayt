@@ -101,17 +101,19 @@ export default {
                     title_ru: this.kafedra.title_ru,
                     title_en: this.kafedra.title_en,
 
-                    haqida_uz: this.kafedra.haqida_uz.split("%"),
-                    haqida_ru: this.kafedra.haqida_ru.split("%"),
-                    haqida_en: this.kafedra.haqida_en.split("%"),
+                    haqida_uz: this.kafedra.haqida_uz.split("\n"),
+                    haqida_ru: this.kafedra.haqida_ru.split("\n"),
+                    haqida_en: this.kafedra.haqida_en.split("\n"),
 
-                    yonalish_uz: this.kafedra.yonalish_uz.split("%"),
-                    yonalish_ru: this.kafedra.yonalish_ru.split("%"),
-                    yonalish_en: this.kafedra.yonalish_en.split("%"),
+                    yonalish_uz: this.kafedra.yonalish_uz.split("\n"),
+                    yonalish_ru: this.kafedra.yonalish_ru.split("\n"),
+                    yonalish_en: this.kafedra.yonalish_en.split("\n"),
 
-                    maqsad_uz: this.kafedra.maqsad_uz.split("%"),
-                    maqsad_ru: this.kafedra.maqsad_ru.split("%"),
-                    maqsad_en: this.kafedra.maqsad_en.split("%"),
+                    maqsad_uz: this.kafedra.maqsad_uz.split("\n"),
+                    maqsad_ru: this.kafedra.maqsad_ru.split("\n"),
+                    maqsad_en: this.kafedra.maqsad_en.split("\n"),
+
+                    fakultet_id: this.kafedra.fakultet_id
                 })
                 .then(res => {
                     console.log(res.data)

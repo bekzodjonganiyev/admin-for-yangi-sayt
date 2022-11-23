@@ -41,7 +41,6 @@
                   <td class="p-3 text-sm text-gray-700 whitespce-nowrap">{{ degree.talim_turi }}</td>
                   <td class="p-3 text-sm text-gray-700 whitespce-nowrap">{{ degree.yili }}</td>
                   <td class="flex items-end">
-                    <button class="mr-2 bg-blue-400 py-1 px-2 rounded">Edit</button>
                     <button class="mr-2 bg-red-400 py-1 px-2 rounded" @click="deleteData(degree._id)">Delete</button>
                   </td>
                 </tr>

@@ -37,29 +37,35 @@
                     </select>
 
                     <!-- Faculty -->
-                    <select required
+                    <select 
+                        @change="getKafedras()"
+                        ref="oneFaculty"
+                        required
                         class="bg-white border border-slate-300 rounded-md py-2 pl-2 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm w-full select"
                         v-model="education.faculty">
                         <option value="">Fakultetni tanlang</option>
-                        <option class="text-black" v-for="(faculty, index) in faculties" :value="faculty.title_uz"
+                        <option class="text-black" v-for="(faculty, index) in faculties" :value="faculty._id"
                             :key="index">
                             {{ faculty.title_uz }}
                         </option>
                     </select>
 
                     <!-- Kafedra -->
-                    <select required
+                    <select
+                        @change="getDirections()"
+                        ref="select"
+                        required
                         class="bg-white border border-slate-300 rounded-md py-2 pl-2 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm w-full select"
                         v-model="education.kafedra">
                         <option value="">Kafedrani tanlang</option>
-                        <option class="text-black" v-for="(kafedra, index) in kaferdas" :value="kafedra.title_uz"
-                            :key="index">
-                            {{ kafedra.title_uz }}
+                        <option class="text-black" v-for="(kafedra, index) in kaferdas" :value="kafedra._id" :key="index">
+                            {{ kafedra }}
                         </option>
                     </select>
 
                     <!-- Direction -->
-                    <select required
+                    <select
+                        required
                         class="bg-white border border-slate-300 rounded-md py-2 pl-2 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm w-full select"
                         v-model="education.direction">
                         <option value="">Talim yo'nalishini tanlang</option>
@@ -119,17 +125,7 @@ export default {
                 "Magistr",
                 "Doktarantura"
             ],
-            directions: [
-                "Noorganik moddalar kimyoviy texnologiyalar  fakulteti",
-                "Noorganik moddalar kimyoviy texnologiyalar  fakulteti",
-                "Noorganik moddalar kimyoviy texnologiyalar  fakulteti",
-                "Noorganik moddalar kimyoviy texnologiyalar  fakulteti",
-                "Noorganik moddalar kimyoviy texnologiyalar  fakulteti",
-                "Noorganik moddalar kimyoviy texnologiyalar  fakulteti",
-                "Noorganik moddalar kimyoviy texnologiyalar  fakulteti",
-                "Noorganik moddalar kimyoviy texnologiyalar  fakulteti",
-                "Noorganik moddalar kimyoviy texnologiyalar  fakulteti",
-            ]
+            directions: []
         }
     },
 
@@ -150,13 +146,24 @@ export default {
         },
 
         getKafedras() {
-            http.get("/kafedra_data/all")
+            let facultyId = this.$refs.oneFaculty.value
+            http.get(`/Fak_data/${facultyId}`)
                 .then(res => {
-                    this.kaferdas = res.data.data
+                    this.kaferdas = res.data.data.kafedras_uz
                     console.log(res.data.data)
                 })
                 .catch(err => {
                     console.log(err)
+                })
+        },
+
+        getDirections() {
+            let kafId = this.$refs.select.value
+            console.log(kafId)
+            http.get(`kafedra_data/${kafId}`)
+                .then(res => {
+                    console.log(res.data.data)
+                    this.directions = res.data.data.yonalish_uz
                 })
         },
 
@@ -185,7 +192,6 @@ export default {
 
     created: function () {
         this.getFaculties()
-        this.getKafedras()
     }
 }
 </script>

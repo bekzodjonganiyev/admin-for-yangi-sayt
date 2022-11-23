@@ -29,7 +29,7 @@
               <thead class="bg-gray-100">
                 <tr>
                   <th class="w-32 text-zinc-400 p-3 text-sm font-semibold tracking-wide text-left">Kafedra nomi</th>
-                  <th class="w-32 text-zinc-400 p-3 text-sm font-semibold tracking-wide text-left">Kafedra kafedralari</th>
+                  <th class="w-32 text-zinc-400 p-3 text-sm font-semibold tracking-wide text-left">Kafedra yo`nalishlari`</th>
                   <th class="w-32 text-zinc-400 p-3 text-sm font-semibold tracking-wide text-left">Amallar</th>
                 </tr>
               </thead>
@@ -44,7 +44,7 @@
                     </button>
                     <button type="button" class="mr-2 bg-blue-400 py-1 px-2 rounded">Ko'rish
                     </button>
-                    <button type="button" @click="deleteData(kafedra.id)"
+                    <button type="button" @click="deleteData(kafedra._id)"
                       class="bg-red-400 py-1 px-2 rounded">Delete</button>
                   </td>
                 </tr>
