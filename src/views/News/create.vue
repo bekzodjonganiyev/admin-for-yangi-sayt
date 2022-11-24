@@ -91,7 +91,7 @@ export default {
             formData.append("body_ru", this.yangilik.body_ru)
             formData.append("body_en", this.yangilik.body_eng)
             formData.append("date", this.yangilik.date)
-            formData.append("photo", this.yangilik.img, this.yangilik.img.name)
+            // formData.append("photo", this.yangilik.img, this.yangilik.img.name)
             console.log(this.yangilik.img)
             http.post('/news/add', formData
             ).then((res) => {

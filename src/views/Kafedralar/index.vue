@@ -40,10 +40,10 @@
                     <p v-for="(kafedra, index) in kafedra.yonalish_uz" :key="index">{{kafedra}}</p>
                   </td>
                   <td class="flex">
-                    <button type="button" class="mr-2 bg-orange-400 py-1 px-2 rounded">Tahrirlash
+                    <!-- <button type="button" class="mr-2 bg-orange-400 py-1 px-2 rounded">Tahrirlash
                     </button>
                     <button type="button" class="mr-2 bg-blue-400 py-1 px-2 rounded">Ko'rish
-                    </button>
+                    </button> -->
                     <button type="button" @click="deleteData(kafedra._id)"
                       class="bg-red-400 py-1 px-2 rounded">Delete</button>
                   </td>

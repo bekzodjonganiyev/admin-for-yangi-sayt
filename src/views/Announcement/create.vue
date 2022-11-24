@@ -20,13 +20,10 @@
                         <TextAreaComponents required class="w-full" v-model="elon.body_eng" name="E'lon matni eng" />
 
                         <div class="Announcement-date ">
-
                             <InputComponent required class="w-full" name="e'lon kiritilgan vaqti" type="date"
                                 v-model="elon.date" />
-
-                            <InputComponent required class="w-full" type="file" name="e'lon rasmi" @change="onFileUpload"/>
-
                         </div>
+                        <UploadFiles />
                     </div>
 
                 </div>
@@ -48,12 +45,14 @@
 import Layout from "../../components/Layout.vue";
 import InputComponent from "../../components/InputComponent.vue";
 import TextAreaComponents from "../../components/TextAreaComponents.vue"
+import UploadFiles from "../../components/UploadFiles.vue"
 import { http } from "../../utils/http";
 export default {
     components: {
         Layout,
         InputComponent,
         TextAreaComponents,
+        UploadFiles
     },
     data() {
         return {
@@ -83,9 +82,9 @@ export default {
             formData.append("body_ru", this.elon.body_ru)
             formData.append("body_en", this.elon.body_eng)
             formData.append("date", this.elon.date)
-            formData.append("photo", this.elon.FILE, this.elon.FILE.name)
+            // formData.append("photo", this.elon.FILE, this.elon.FILE.name)
 
-            http.post('/elon/add',formData
+            http.post('/elon/add', formData
             ).then((res) => {
                 this.xabar()
                 console.log(res)

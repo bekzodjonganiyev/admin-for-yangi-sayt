@@ -41,20 +41,21 @@
                             <tbody class="divide-y divide-gray-100">
                                 <tr v-for="(user, index) in users" :key="index" class="bg-white">
                                     <td class="p-3 text-sm text-gray-700 whitespce-nowrap"><img class="w-10 rounded"
-                                            v-bind:src="url+'/'+user.photo.split('public/')[1]" alt=""></td>
+                                            v-bind:src="url + '/' + user.photo.split('public/')[1]" alt=""></td>
                                     <td class="p-3 text-sm text-gray-700 whitespce-nowrap">{{ user.title_uz }}</td>
                                     <td class="p-3 text-sm text-gray-700 whitespce-nowrap">{{ user.body_uz }}</td>
                                     <td>
-                                        <button type="button" class="mr-2 bg-orange-400 py-1 px-2 rounded">
+                                        <!-- <button type="button" class="mr-2 bg-orange-400 py-1 px-2 rounded">
                                             <router-link :to="{ name: 'departments.edit', params: { id: user._id } }">
                                                 Tahrirlash
                                             </router-link>
                                         </button>
 
                                         <button type="button" class="mr-2 bg-blue-400 py-1 px-2 rounded">
-                                            <router-link :to="{ name: 'departments.view', params: { id: user._id } }">Ko'rish
+                                            <router-link :to="{ name: 'departments.view', params: { id: user._id } }">
+                                                Ko'rish
                                             </router-link>
-                                        </button>
+                                        </button> -->
 
 
                                         <button @click="deleteData(user.id)" type="button"
@@ -83,7 +84,7 @@ export default {
     data() {
         return {
             users: [],
-            url:"http://backend.tkti.uz"
+            url: "http://backend.tkti.uz"
         }
     },
     methods: {

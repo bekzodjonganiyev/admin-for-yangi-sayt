@@ -39,12 +39,12 @@
                 <td class="p-3 text-sm text-gray-700 whitespce-nowrap">{{ customer.title_uz }}</td>
                 <td class="p-3 text-sm text-gray-700 whitespce-nowrap">{{ customer.body_uz }}</td>
                 <td class="flex items-end">
-                  <button type="button" class="mr-2 bg-orange-400 py-1 px-2 rounded">
+                  <!-- <button type="button" class="mr-2 bg-orange-400 py-1 px-2 rounded">
                     <RouterLink :to="{ name: 'news.edit', params: { id: customer._id } }">Tahrirlash</RouterLink>
                   </button>
                   <button type="button" class="mr-2 bg-blue-400 py-1 px-2 rounded">
                     <router-link :to="{ name: 'news.view', params: { id: customer._id } }">Ko'rish</router-link>
-                  </button>
+                  </button> -->
                   <button type="button" @click="deleteData(customer._id)"
                     class="bg-red-400 py-1 px-2 rounded">O'chirish</button>
                 </td>
