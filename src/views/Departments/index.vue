@@ -19,9 +19,10 @@
                     </label>
                     <router-link to="/departments/create">
                         <button
-                            class="bg-blue-800 text-white active:bg-blue-400 font-bold text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150">Bo'lim
-                            Qo'shish</button>
+                            class="bg-blue-800 text-white active:bg-blue-400 font-bold text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150">
+                            Bo'lim Qo'shish</button>
                     </router-link>
+                    
                 </div>
                 <div class="h-full w-full mt-4">
                     <div class="overflow-auto p-5 overflow-y-scroll bg-white rounded-lg shadow hidden md:block">
@@ -29,21 +30,17 @@
                             <thead class="bg-gray-100">
                                 <tr>
                                     <th class="w-32 text-zinc-400 p-3 text-sm font-semibold tracking-wide text-left">
-                                        Rasm</th>
+                                        Nomi</th>
                                     <th class="w-32 text-zinc-400 p-3 text-sm font-semibold tracking-wide text-left">
-                                        Sarlavha</th>
-                                    <th class="w-32 text-zinc-400 p-3 text-sm font-semibold tracking-wide text-left">
-                                        Kontent</th>
+                                        Maqsadi</th>
                                     <th class="w-32 text-zinc-400 p-3 text-sm font-semibold tracking-wide text-left">
                                         Amallar</th>
                                 </tr>
                             </thead>
                             <tbody class="divide-y divide-gray-100">
                                 <tr v-for="(user, index) in users" :key="index" class="bg-white">
-                                    <td class="p-3 text-sm text-gray-700 whitespce-nowrap"><img class="w-10 rounded"
-                                            v-bind:src="url + '/' + user.photo.split('public/')[1]" alt=""></td>
                                     <td class="p-3 text-sm text-gray-700 whitespce-nowrap">{{ user.title_uz }}</td>
-                                    <td class="p-3 text-sm text-gray-700 whitespce-nowrap">{{ user.body_uz }}</td>
+                                    <td class="p-3 text-sm text-gray-700 whitespce-nowrap">{{ user.maqsad_uz }}</td>
                                     <td>
                                         <!-- <button type="button" class="mr-2 bg-orange-400 py-1 px-2 rounded">
                                             <router-link :to="{ name: 'departments.edit', params: { id: user._id } }">
@@ -89,14 +86,14 @@ export default {
     },
     methods: {
         getData() {
-            http.get('/elon/all').then((response) => {
+            http.get('/bm_data/all').then((response) => {
                 this.users = response.data.data;
                 console.log(this.users)
             })
         },
         deleteData(id) {
             if (confirm("e'lonni o'chirish !!!")) {
-                http.delete(`/custom-user/${id}/delete/`).then(() => {
+                http.delete(`/bm_data/${id}`).then(() => {
                     this.getData()
                 })
             }

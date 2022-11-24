@@ -1,41 +1,44 @@
 <template>
+
     <Layout>
         <form @submit.prevent="postData">
             <div class="my-8 mx-40 rounded-xl drop-shadow-md pt-20 pb-20 bg-white">
                 <div class="flex justify-evenly w-full">
-                    <div class="space-y-6 announcement">
-                        <h1 class="Announcement-info">e'lon o'zbek tilida qo'shish</h1>
+                    <div class="space-y-6 news">
+                        <h1 class="news-info">Bo`lim o'zbek tilida qo'shish</h1>
                         <hr />
-                        <InputComponent required class="w-full" name="E'lon nomi uz" v-model="elon.title_uz" />
-                        <TextAreaComponents required class="w-full" v-model="elon.body_uz" name="E'lon matni uz" />
+                        <InputComponent required class="w-full" name="Bo`lim nomi" v-model="bolim.title_uz" />
+                        <TextAreaComponents required class="w-full" v-model="bolim.haqida_uz"
+                            name="Bo`lim haqida" />
+                        <TextAreaComponents required class="w-full" v-model="bolim.maqsad_uz"
+                            name="Bo`lim maqsadi" />
 
-                        <h1 class="Announcement-info">e'lon rus tilida qo'shish</h1>
+                        <h1 class="news-info">Bo`lim rus tilida qo'shish</h1>
                         <hr />
-                        <InputComponent required class="w-full" name="E'lon nomi ru" v-model="elon.title_ru" />
-                        <TextAreaComponents required class="w-full" v-model="elon.body_ru" name="E'lon matni ru" />
+                        <InputComponent required class="w-full" name="Bo`lim nomi" v-model="bolim.title_ru" />
+                        <TextAreaComponents required class="w-full" v-model="bolim.haqida_ru"
+                            name="Bo`lim haqida" />
+                        <TextAreaComponents required class="w-full" v-model="bolim.maqsad_ru"
+                            name="Bo`lim maqsadi" />
 
-                        <h1 class="Announcement-info">e'lon ingliz tilida qo'shish</h1>
+                        <h1 class="news-info">Bo`lim ingliz tilida qo'shish</h1>
                         <hr />
-                        <InputComponent required class="w-full" name="E'lon nomi eng" v-model="elon.title_eng" />
-                        <TextAreaComponents required class="w-full" v-model="elon.body_eng" name="E'lon matni eng" />
+                        <InputComponent required class="w-full" name="Bo`lim nomi" v-model="bolim.title_en" />
+                        <TextAreaComponents required class="w-full" v-model="bolim.haqida_en"
+                            name="Bo`lim haqida" />
+                        <TextAreaComponents required class="w-full" v-model="bolim.maqsad_en"
+                            name="Bo`lim maqsadi" />
 
-                        <div class="Announcement-date ">
-
-                            <InputComponent required class="w-full" name="e'lon kiritilgan vaqti" type="date"
-                                v-model="elon.date" />
-
-                            <!-- <InputComponent required class="w-full" type="file" name="e'lon rasmi" v-model="elon.announcementImg" /> -->
-                            <input type="file" multiple @change="onFileUpload">
-
-                        </div>
                     </div>
 
                 </div>
-                <div class="Announcement-btn">
+                <div class="news-btn">
+
+
                     <button type="submit"
                         class="   bg-blue-800 text-white font-bold px-7 py-4 rounded-md cursor-pointer active:bg-blue-500">yuklash
                     </button>
-                    <RouterLink to="/users">
+                    <RouterLink to="/customers">
                         <button type="submit"
                             class="  bg-red-500 text-white font-bold px-7 py-4 rounded-md cursor-pointer active:bg-red-400">Ortga</button>
                     </RouterLink>
@@ -58,65 +61,63 @@ export default {
     },
     data() {
         return {
-            elon: {
+            bolim: {
                 title_uz: "",
                 title_ru: "",
-                title_eng: "",
-                body_uz: "",
-                body_ru: "",
-                body_eng: "",
-                date: "",
-                FILE: null
+                title_en: "",
+                haqida_uz: "",
+                haqida_ru: "",
+                haqida_en: "",
+                maqsad_uz: "",
+                maqsad_en: "",
+                maqsad_ru: "",
             }
         }
     },
     methods: {
-        onFileUpload(event) {
-            this.elon.FILE = event.target.files
-        },
-
         postData() {
-            const formData = new FormData()
-            formData.append("title_uz", this.elon.title_uz)
-            formData.append("title_ru", this.elon.title_ru)
-            formData.append("title_en", this.elon.title_eng)
-            formData.append("body_uz", this.elon.body_uz)
-            formData.append("body_ru", this.elon.body_ru)
-            formData.append("body_eb", this.elon.body_eng)
-            formData.append("date", this.elon.date)
-            formData.append("photo", this.elon.FILE, this.elon.FILE.name)
+            http.post("bm_data/add",
+                {
+                    title_uz: this.bolim.title_uz,
+                    title_ru: this.bolim.title_ru,
+                    title_en: this.bolim.title_en,
 
-            http.post('/elon/add',formData
-            ).then((res) => {
-                this.xabar()
-                console.log(res)
-            }).catch((err) => {
-                console.log(err)
-            })
+                    haqida_uz: this.bolim.haqida_uz.split("\n"),
+                    haqida_ru: this.bolim.haqida_ru.split("\n"),
+                    haqida_en: this.bolim.haqida_en.split("\n"),
 
-            console.log(formData)
-        },
-        xabar() {
-            alert("yangi element qo`shidi")
-            this.$router.push('/users')
+                    maqsad_uz: this.bolim.maqsad_uz.split("\n"),
+                    maqsad_ru: this.bolim.maqsad_ru.split("\n"),
+                    maqsad_en: this.bolim.maqsad_en.split("\n"),
+                })
+                .then(res => {
+                    console.log(res.data)
+                    alert("Malumotlar qo`shildi")
+                    this.$router.push('/departments')
+                })
+                .catch(err => {
+                    console.log(err)
+                })
         }
+
     },
     mounted: function () {
     }
 }
 </script>
-<style>
-.announcement {
-    width: 40vw;
+
+<style scoped>
+.news {
+    width: 50vw;
     margin: 0 50px;
 }
 
-.Announcement-date {
+.news-date {
     display: flex;
     gap: 10px;
 }
 
-.Announcement-info {
+.news-info {
     display: flex;
     font-size: 25px;
     color: rgb(30, 65, 118);
@@ -125,10 +126,9 @@ export default {
 
 }
 
-.Announcement-btn {
+.news-btn {
     display: flex;
     margin: 20px 50px;
-
     gap: 15px;
 
 }
