@@ -14,53 +14,35 @@
       <!-- RuterLinks -->
       <div class="flex flex-col text-slate-300 m-4 ml-10 w-36 sm:">
         <RouterLink to="/dashboard" class="font-semibold flex mb-7">
-          <DashboardIcon />
           <span class="d-flex block">Analitika</span>
         </RouterLink>
 
         <RouterLink to="/customers" class="font-semibold flex mb-7">
-          <FakultetIcon />
           <span>Fakultetlar</span>
         </RouterLink>
 
         <RouterLink to="/items" class="font-semibold flex mb-7">
-          <KafedralarIcon />
           <span>Kafedralar</span>
         </RouterLink>
 
         <RouterLink to="/orders" class="font-semibold flex mb-7">
-          <FaoliyatIcon />
           <span>Faoliyat</span>
         </RouterLink>
 
         <RouterLink to="/departments" class="font-semibold flex mb-7">
-          <BolimlarIcon />
           <span>Bo'limlar</span>
         </RouterLink>
 
         <RouterLink to="/syllabus" class="font-semibold flex mb-7">
-          <ElonlarIcon />
           <span>Sillabus</span>
         </RouterLink>
 
         <RouterLink to="/users" class="font-semibold flex mb-7">
-          <ElonlarIcon />
           <span>E'lon</span>
         </RouterLink>
 
         <RouterLink to="/news" class="font-semibold flex mb-7">
-          <ElonlarIcon />
           <span>Yangiliklar</span>
-        </RouterLink>
-
-        <RouterLink to="/settings" class="font-semibold flex mb-7">
-          <YangiliklarIcon />
-          <span>Sozlamalar</span>
-        </RouterLink>
-
-        <RouterLink to="/paper" class="font-semibold flex mb-7">
-          <YangiliklarIcon />
-          <span>Tanlovlar</span>
         </RouterLink>
       </div>
     </div>
@@ -75,13 +57,4 @@ a.router-link-exact-active {
 
 <script setup>
 import { RouterLink } from "vue-router";
-
-import DashboardIcon from "../assets/Icons/DashboardIcon.vue";
-import FakultetIcon from "../assets/Icons/FakultetIcon.vue"
-import KafedralarIcon from "../assets/Icons/KafedralarIcon.vue"
-import FaoliyatIcon from "../assets/Icons/FaoliyatIcon.vue"
-import BolimlarIcon from "../assets/Icons/BolimlarIcon.vue"
-import ElonlarIcon from "../assets/Icons/ElonlarIcon.vue"
-import YangiliklarIcon from "../assets/Icons/Yangiliklar.vue"
-
 </script>

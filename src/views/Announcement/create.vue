@@ -24,8 +24,7 @@
                             <InputComponent required class="w-full" name="e'lon kiritilgan vaqti" type="date"
                                 v-model="elon.date" />
 
-                            <!-- <InputComponent required class="w-full" type="file" name="e'lon rasmi" v-model="elon.announcementImg" /> -->
-                            <input type="file" @change="onFileUpload">
+                            <InputComponent required class="w-full" type="file" name="e'lon rasmi" @change="onFileUpload"/>
 
                         </div>
                     </div>

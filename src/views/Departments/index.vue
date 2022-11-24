@@ -41,7 +41,7 @@
                             <tbody class="divide-y divide-gray-100">
                                 <tr v-for="(user, index) in users" :key="index" class="bg-white">
                                     <td class="p-3 text-sm text-gray-700 whitespce-nowrap"><img class="w-10 rounded"
-                                            v-bind:src="user.photo" alt=""></td>
+                                            v-bind:src="url+'/'+user.photo.split('public/')[1]" alt=""></td>
                                     <td class="p-3 text-sm text-gray-700 whitespce-nowrap">{{ user.title_uz }}</td>
                                     <td class="p-3 text-sm text-gray-700 whitespce-nowrap">{{ user.body_uz }}</td>
                                     <td>
@@ -83,6 +83,7 @@ export default {
     data() {
         return {
             users: [],
+            url:"http://backend.tkti.uz"
         }
     },
     methods: {

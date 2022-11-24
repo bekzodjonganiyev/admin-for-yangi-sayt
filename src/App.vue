@@ -107,7 +107,7 @@ export default {
                      this.password = ""
                   }
                   else {
-                     document.cookie = `isAuth = ${true}; max-age = 86400`
+                     document.cookie = `isAuth = ${true}; max-age = 86400; SameSite=Strict; Secure`
                      window.location.reload(false)
                   }
                   console.log(res)

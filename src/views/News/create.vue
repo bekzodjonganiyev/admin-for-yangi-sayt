@@ -25,9 +25,9 @@
                         <div class="news-date ">
 
                             <InputComponent required class="w-full" name="yangilik kiritilgan vaqti" type="date"
-                                v-model="date" />
+                                 v-model="yangilik.date"/>
                             <InputComponent required class="w-full" name="Rasm yuklang" type="file"
-                                v-model="date" @change="onFileUpload" />
+                                 @change="onFileUpload" />
                             <!-- <input type="file" @change=""> -->
 
                         </div>

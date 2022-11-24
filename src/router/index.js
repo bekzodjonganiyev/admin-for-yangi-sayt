@@ -6,12 +6,9 @@ import AnnouncementEdit from "../views/Announcement/edit.vue";
 import AnnouncementAdd from "../views/Announcement/create.vue";
 import AnnouncementView from "../views/Announcement/view.vue"
 
-import Paper from "../views/paper/index.vue"
-
 import Items from "../views/Kafedralar/index.vue";
 import salom from "../views/Kafedralar/create.vue";
 import ItemEdit from "../views/Kafedralar/edit.vue";
-import ProductItem from "../views/ProductItem.vue";
 
 import Customers from "../views/Faculties/index.vue";
 import CustomersAdd from "../views/Faculties/create.vue";
@@ -30,10 +27,6 @@ import DepartmentsView from "../views/Departments/view.vue"
 
 import Syllabus from "../views/Syllabus/index.vue"
 import SyllabusAdd from "../views/Syllabus/create.vue"
-
-import Settings from "../views/Settings.vue";
-import Profil from "../views/Profil.vue";
-import Login from "../views/MainPage/Login.vue";
 
 import News from "../views/News/index.vue";
 import NewsCreate from "../views/News/create.vue";
@@ -91,12 +84,6 @@ const router = createRouter({
       name: "orders.view",
       component: OrdersView,
     },
-
-    {
-      path: "/productitem",
-      name: "productitem",
-      component: ProductItem,
-    },
     {
       path: "/",
       name: "home",
@@ -137,13 +124,6 @@ const router = createRouter({
       name:"syllabus.create",
       component:SyllabusAdd
     },
-
-    {
-      path: "/settings",
-      name: "settings",
-      component: Settings,
-    },
-
     // Announcement page
     {
       path: "/users",
@@ -181,18 +161,6 @@ const router = createRouter({
       path: "/items/edit/:id",
       name: "items.edit",
       component: ItemEdit,
-    },
-
-    {
-      path: "/profil",
-      name: "profil",
-      component: Profil,
-    },
-    // paper
-    {
-      path: "/paper",
-      name: "paper",
-      component: Paper,
     },
 
     // NEWS
