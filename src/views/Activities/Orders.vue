@@ -1,6 +1,6 @@
 <template>
   <Layout>
-    <h1 class="font-semibold text-xl">Faoliyat</h1>
+    <h1 class="font-semibold text-xl">Yangiliklar</h1>
     <div class="my-5">
       <div class="flex justify-between">
         <label class="relative block">
@@ -19,8 +19,8 @@
         <router-link to="/orders/create">
           <button
             class="bg-blue-800 text-white active:bg-blue-400 font-bold text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-            type="button">Faoliyat Qo'shish</button>
-        </router-link>                            
+            type="button">Yangilik Qo'shish</button>
+        </router-link>
       </div>
       <div class="h-full w-full mt-4">
         <div class="overflow-auto p-5 bg-white rounded-lg shadow hidden md:block">
@@ -35,7 +35,7 @@
             </thead>
             <tbody class="divide-y divide-gray-100">
               <tr v-for="(customer, index) in customers" :key="index" class="bg-white">
-                <td class="p-3 text-sm text-gray-700 whitespce-nowrap"><img class="w-10 rounded" v-bind:src="url+'/'+customer.photo.split('public/')[1]" alt=""></td>
+                <td class="p-3 text-sm text-gray-700 whitespce-nowrap"><img class="w-10 rounded" v-bind:src="url+'/uploads/'+customer.photo" alt=""></td>
                 <td class="p-3 text-sm text-gray-700 whitespce-nowrap">{{ customer.title_uz }}</td>
                 <td class="p-3 text-sm text-gray-700 whitespce-nowrap">{{ customer.body_uz }}</td>
                 <td class="flex items-end">
@@ -71,16 +71,16 @@
     },
     methods: {
       getData() {
-        http.get('/news/all').then((response) => {
+        http.get('/Faoliyat_data/all').then((response) => {
+          console.log(response.data.data)
           this.customers = response.data.data;
-          console.log(response.data.data[0].photo.split("public/")[1]);
         }).catch(error => {
           console.log(error);
         })
       },
       deleteData(id) {
         if (confirm('This element will be delete!!! ⚠⚠⚠')) {
-          http.delete(`/news/${id}`).then(() => {
+          http.delete(`/Faoliyat_data/${id}`).then(() => {
             this.getData()
           })
         }

@@ -42,8 +42,10 @@
                   <input type="password" v-model="password" placeholder="Password"
                      class="border w-full border-gray-400 px-2 py-2 my-3 placeholder-blueGray-300 text-blueGray-600 relative bg-white rounded text-md shadow outline-none focus:outline-none focus:shadow-outline" />
                   <button type="submit" class="rounded w-full py-3 mt-2 mb-10 bg-blue-900 text-white">Log in</button>
+                  <span class="cursor-pointer ml-16 hover:text-indigo-600" @click="claerLocalStorage">Bo'lim boshlig'i orqali ro'yxatdan o'tish</span>
                </div>
             </form>
+
          </div>
       </div>
    </div>
@@ -118,7 +120,12 @@ export default {
 
          console.log(document.cookie)
 
-      }
+      },
+
+      claerLocalStorage() {
+         window.localStorage.removeItem("token")
+         window.location.reload(false)
+      },
    },
 
    created() {

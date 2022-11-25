@@ -23,7 +23,7 @@
                             <InputComponent required class="w-full" name="e'lon kiritilgan vaqti" type="date"
                                 v-model="elon.date" />
                         </div>
-                        <UploadFiles />
+                        <UploadFiles :string-data="elon" upload-url="/elon/add" />
                     </div>
 
                 </div>
@@ -64,7 +64,6 @@ export default {
                 body_ru: "",
                 body_eng: "",
                 date: "",
-                FILE: null
             }
         }
     },
@@ -84,15 +83,13 @@ export default {
             formData.append("date", this.elon.date)
             // formData.append("photo", this.elon.FILE, this.elon.FILE.name)
 
-            http.post('/elon/add', formData
-            ).then((res) => {
-                this.xabar()
-                console.log(res)
-            }).catch((err) => {
-                console.log(err)
-            })
-
-            console.log(formData)
+            // http.post('/elon/add', formData
+            // ).then((res) => {
+            //     this.xabar()
+            //     console.log(res)
+            // }).catch((err) => {
+            //     console.log(err)
+            // })
         },
         xabar() {
             alert("yangi element qo`shidi")

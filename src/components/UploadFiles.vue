@@ -17,7 +17,7 @@
             <input type="file" multiple @change="selectFile" />
         </label>
 
-        <button class="btn btn-success" :disabled="!selectedFiles" @click="uploadFiles">
+        <button ref="forDisabled" class="btn btn-success" :disabled="!selectedFiles" @click="uploadFiles">
             Upload
         </button>
         <div class="card">
@@ -33,12 +33,15 @@ import UploadService from "../utils/UploadFileServise";
 
 export default {
     name: "upload-files",
+    props:{
+        stringData: Object,
+        uploadUrl: String
+    },
     data() {
         return {
             selectedFiles: undefined,
             progressInfos: [],
             message: "",
-
             fileInfos: [],
         };
     },
@@ -53,7 +56,7 @@ export default {
 
             UploadService.upload(file, (event) => {
                 this.progressInfos[idx].percentage = Math.round(100 * event.loaded / event.total);
-            })
+            }, this.stringData, this.uploadUrl)
                 .then((response) => {
                     let prevMessage = this.message ? this.message + "\n" : "";
                     this.message = prevMessage + response.data.message;
@@ -61,9 +64,10 @@ export default {
                     return UploadService.getFiles();
                 })
                 .then((files) => {
-                    // this.fileInfos = files.data;
+                    console.log("files chiqdi", files)
                     UploadService.getFiles().then((response) => {
-                        this.fileInfos = response.data.data;
+                        console.log("respomse chiqdi", response)
+                        this.fileInfos = response.data.data.filter(a => a.title_uz === this.stringData.title_uz);
                     });
                 })
                 .catch(() => {
@@ -74,10 +78,10 @@ export default {
 
         uploadFiles() {
             this.message = "";
-
             for (let i = 0; i < this.selectedFiles.length; i++) {
                 this.upload(i, this.selectedFiles[i]);
             }
+            this.$refs.forDisabled.disabled = true
         }
     },
     mounted() {

@@ -1,6 +1,11 @@
 <template>
 
     <Layout>
+        <ModalWindow class="xodim-modal" :show="showModal" @close="showModal = false">
+            <template #body>
+                <XodimForm/>
+            </template>
+        </ModalWindow>
         <form @submit.prevent="postData">
             <div class="my-8 mx-40 rounded-xl drop-shadow-md pt-20 pb-20 bg-white">
                 <div class="flex justify-evenly w-full">
@@ -34,20 +39,18 @@
                             name="Fakultet maqsadi" />
                         <TextAreaComponents required class="w-full" v-model="fakultet.kafedras_en"
                             name="Fakultet kafedralari" />
-
                     </div>
-
                 </div>
                 <div class="news-btn">
-
-
                     <button type="submit"
-                        class="   bg-blue-800 text-white font-bold px-7 py-4 rounded-md cursor-pointer active:bg-blue-500">yuklash
+                        class="bg-blue-800 text-white active:bg-blue-400 font-bold text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150">
+                        Malumotlarni Qo'shish
                     </button>
-                    <RouterLink to="/customers">
-                        <button type="submit"
-                            class="  bg-red-500 text-white font-bold px-7 py-4 rounded-md cursor-pointer active:bg-red-400">Ortga</button>
-                    </RouterLink>
+                    <button
+                        class="bg-blue-800 text-white active:bg-blue-400 font-bold text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                        type="button" id="show-modal" @click="showModal = true">
+                        Xodim qo'shish
+                    </button>
                 </div>
             </div>
         </form>
@@ -58,15 +61,20 @@
 import Layout from "../../components/Layout.vue";
 import InputComponent from "../../components/InputComponent.vue";
 import TextAreaComponents from "../../components/TextAreaComponents.vue"
+import ModalWindow from "../../components/ModalWindow.vue";
+import XodimForm from "../../components/XodimForm.vue"
 import { http } from "../../utils/http";
 export default {
     components: {
         Layout,
         InputComponent,
         TextAreaComponents,
+        ModalWindow,
+        XodimForm
     },
     data() {
         return {
+            showModal: false,
             fakultet: {
                 title_uz: "",
                 title_ru: "",
@@ -141,8 +149,12 @@ export default {
 
 .news-btn {
     display: flex;
+    align-items: center;
+    justify-content: space-between;
     margin: 20px 50px;
     gap: 15px;
 
 }
+
+
 </style>

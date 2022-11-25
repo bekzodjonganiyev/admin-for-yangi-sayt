@@ -23,7 +23,7 @@ export default {
                         <slot name="footer">
                             <button
                                 @click="$emit('close')"
-                                class="font-semibold text-sm text-white active:opacity-75 rounded-md bg-indigo-600 px-4 py-3 mt-4 w-full flex justify-center"
+                                class="font-semibold text-sm text-white active:opacity-75 rounded-md bg-red-600 px-4 py-3 mt-4 w-full flex justify-center"
                             >Close</button>
                         </slot>
                     </div>
@@ -52,9 +52,9 @@ export default {
 }
 
 .modal-container {
-    max-width: 350px;
+    max-width: 70vw;
     margin: 0px auto;
-    padding: 20px 30px;
+    padding: 10px 30px;
     background-color: #fff;
     border-radius: 2px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);

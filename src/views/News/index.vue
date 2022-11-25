@@ -73,7 +73,6 @@
       getData() {
         http.get('/news/all').then((response) => {
           this.customers = response.data.data;
-          console.log(response.data.data[0].photo.split("public/")[1]);
         }).catch(error => {
           console.log(error);
         })
