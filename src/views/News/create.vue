@@ -19,9 +19,9 @@
 
                         <h1 class="news-info">yangilik ingliz tilida qo'shish</h1>
                         <hr />
-                        <InputComponent required class="w-full" name="Yangilik nomi eng" v-model="yangilik.title_eng" />
+                        <InputComponent required class="w-full" name="Yangilik nomi en" v-model="yangilik.title_eng" />
                         <TextAreaComponents required class="w-full" v-model="yangilik.body_eng"
-                            name="Yangilik matni eng" />
+                            name="Yangilik matni en" />
                         <div class="news-date ">
 
                             <InputComponent required class="w-full" name="yangilik kiritilgan vaqti" type="date"
@@ -91,7 +91,7 @@ export default {
             formData.append("body_ru", this.yangilik.body_ru)
             formData.append("body_en", this.yangilik.body_eng)
             formData.append("date", this.yangilik.date)
-            // formData.append("photo", this.yangilik.img, this.yangilik.img.name)
+            formData.append("photo", this.yangilik.img, this.yangilik.img.name)
             console.log(this.yangilik.img)
             http.post('/news/add', formData
             ).then((res) => {
