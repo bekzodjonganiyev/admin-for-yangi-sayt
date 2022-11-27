@@ -1,11 +1,11 @@
 <template>
     <div class="flex flex-col">
         <label class="mb-4 border border-slate-300 py-2 pl-2 pr-3 rounded text-center shadow-sm">
-            <span class="text-indigo-600 font-semibold cursor-pointer">Xodim rasmini qo'shing</span>
+            <span class="text-indigo-600 font-semibold cursor-pointer">Rasmlarni qo'shish</span>
             <input @change="selectFile" class="hidden" multiple type="file" />
         </label>
 
-        <div v-if="progressInfos" class="mb-4">
+        <div v-if="progressInfos" class="mb-2">
             <div class="mb-2" v-for="(progressInfo, index) in progressInfos" :key="index">
                 <span>{{ progressInfo.fileName }}</span>
                 <div class="progress">
@@ -18,12 +18,13 @@
             </div>
         </div>
 
-        <div class="flex mt-2 pl-14 flex-wrap border border-red-600">
-            <img 
-               class="m-2  "
-               v-for="(file, index) in fileInfos" 
-               :key="index"
-               :src="'http://localhost:5000' + '/' + file.photo" width="200" height="auto" />
+        <div class="flex m-2 pl-14 flex-wrap">
+            <a v-for="(file, index) in fileInfos" target="_blank" :href="'http://localhost:5000' + '/' + file.photo" :key="index">
+                <img 
+                  class="m-2 w-20 h-20 rounded-full "
+                  :src="'http://localhost:5000' + '/' + file.photo" width="200" height="auto"
+                />
+            </a>
         </div>
 
         <button ref="forDisabled" class="bg-blue-800 text-white active:bg-blue-400 font-bold text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" :disabled="!selectedFiles" @click="uploadFiles">
