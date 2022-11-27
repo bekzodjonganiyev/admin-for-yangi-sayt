@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const http = axios.create({
-    baseURL: "http://backend.tkti.uz",
+    baseURL: "http://localhost:5000",
 });
 
 http.interceptors.request.use((config) => {

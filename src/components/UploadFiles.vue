@@ -1,6 +1,11 @@
 <template>
-    <div>
-        <div v-if="progressInfos">
+    <div class="flex flex-col">
+        <label class="mb-4 border border-slate-300 py-2 pl-2 pr-3 rounded text-center shadow-sm">
+            <span class="text-indigo-600 font-semibold cursor-pointer">Xodim rasmini qo'shing</span>
+            <input @change="selectFile" class="hidden" multiple type="file" />
+        </label>
+
+        <div v-if="progressInfos" class="mb-4">
             <div class="mb-2" v-for="(progressInfo, index) in progressInfos" :key="index">
                 <span>{{ progressInfo.fileName }}</span>
                 <div class="progress">
@@ -13,18 +18,17 @@
             </div>
         </div>
 
-        <label class="btn btn-default">
-            <input type="file" multiple @change="selectFile" />
-        </label>
+        <div class="flex mt-2 pl-14 flex-wrap border border-red-600">
+            <img 
+               class="m-2  "
+               v-for="(file, index) in fileInfos" 
+               :key="index"
+               :src="'http://localhost:5000' + '/' + file.photo" width="200" height="auto" />
+        </div>
 
-        <button ref="forDisabled" class="btn btn-success" :disabled="!selectedFiles" @click="uploadFiles">
+        <button ref="forDisabled" class="bg-blue-800 text-white active:bg-blue-400 font-bold text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" :disabled="!selectedFiles" @click="uploadFiles">
             Upload
         </button>
-        <div class="card">
-            <div class="card-header">List of Files</div>
-            <img flex v-for="(file, index) in fileInfos" :key="index"
-                :src="'http://backend.tkti.uz' + '/' + file.photo.split('public/')[1]" width="200" height="auto" />
-        </div>
     </div>
 </template>
   
@@ -35,7 +39,8 @@ export default {
     name: "upload-files",
     props:{
         stringData: Object,
-        uploadUrl: String
+        uploadUrl: String,
+        getUrl: String
     },
     data() {
         return {
@@ -53,7 +58,7 @@ export default {
 
         upload(idx, file) {
             this.progressInfos[idx] = { percentage: 0, fileName: file.name };
-
+            console.log("nimadir chiqadi", file)
             UploadService.upload(file, (event) => {
                 this.progressInfos[idx].percentage = Math.round(100 * event.loaded / event.total);
             }, this.stringData, this.uploadUrl)
@@ -61,12 +66,10 @@ export default {
                     let prevMessage = this.message ? this.message + "\n" : "";
                     this.message = prevMessage + response.data.message;
 
-                    return UploadService.getFiles();
+                    return UploadService.getFiles(this.getUrl);
                 })
                 .then((files) => {
-                    console.log("files chiqdi", files)
-                    UploadService.getFiles().then((response) => {
-                        console.log("respomse chiqdi", response)
+                    UploadService.getFiles(this.getUrl).then((response) => {
                         this.fileInfos = response.data.data.filter(a => a.title_uz === this.stringData.title_uz);
                     });
                 })

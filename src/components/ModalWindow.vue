@@ -11,7 +11,7 @@ export default {
         <div v-if="show" class="modal-mask">
             <div class="modal-wrapper">
                 <div class="modal-container">
-                    <div>
+                    <div class="modal-header">
                         <slot name="header"></slot>
                     </div>
 
@@ -23,7 +23,7 @@ export default {
                         <slot name="footer">
                             <button
                                 @click="$emit('close')"
-                                class="font-semibold text-sm text-white active:opacity-75 rounded-md bg-red-600 px-4 py-3 mt-4 w-full flex justify-center"
+                                class="font-semibold text-sm text-white active:opacity-75 rounded-md bg-red-600 px-4 py-3 w-full flex justify-center"
                             >Close</button>
                         </slot>
                     </div>
@@ -49,6 +49,7 @@ export default {
 .modal-wrapper {
     display: table-cell;
     vertical-align: middle;
+    /* background: ; */
 }
 
 .modal-container {

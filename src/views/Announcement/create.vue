@@ -23,11 +23,10 @@
                             <InputComponent required class="w-full" name="e'lon kiritilgan vaqti" type="date"
                                 v-model="elon.date" />
                         </div>
-                        <UploadFiles :string-data="elon" upload-url="/elon/add" />
+                        <UploadFiles :string-data="elon" upload-url="/elon/add" get-url="/elon/all"/>
                     </div>
-
                 </div>
-                <div class="Announcement-btn">
+                <!-- <div class="Announcement-btn">
                     <button type="submit"
                         class="   bg-blue-800 text-white font-bold px-7 py-4 rounded-md cursor-pointer active:bg-blue-500">yuklash
                     </button>
@@ -35,7 +34,7 @@
                         <button type="submit"
                             class="  bg-red-500 text-white font-bold px-7 py-4 rounded-md cursor-pointer active:bg-red-400">Ortga</button>
                     </RouterLink>
-                </div>
+                </div> -->
             </div>
         </form>
     </Layout>

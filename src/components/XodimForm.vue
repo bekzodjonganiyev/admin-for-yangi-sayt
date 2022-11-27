@@ -1,45 +1,54 @@
 <template>
-    <form>
+    <form @submit.prevent="postData">
         <div class="form-content">
             <div class="uz">
-                <h1>Xodim haqidagi malumotlarni o'zbek tilida qo'shing</h1>
-                <InputComponent class="w-full mb-4 text-ml" name="Xodim lavozimi" type="text" />
-                <InputComponent class="w-full mb-4 text-ml" name="Xodim Ismi" type="text" />
-                <InputComponent class="w-full mb-4 text-ml" name="Xodim telefon raqami" type="tel" />
-                <InputComponent class="w-full mb-4 text-ml" name="Xodim email pochtasi" type="email" />
-                <InputComponent class="w-full mb-4 text-ml" name="Xodim rasmi" type="file" />
+                <h1 class="text-xl">Malumotlarni o'zbek tilida qo'shing</h1>
+                <InputComponent v-model="job_uz" class="w-full mb-4 text-ml" name="Xodim lavozimi" type="text" />
+                <InputComponent v-model="name_uz" class="w-full mb-4 text-ml" name="Xodim Ismi" type="text" />
             </div>
 
             <div class="ru">
-                <h1>Xodim haqidagi malumotlarni rus tilida qo'shing</h1>
-                <InputComponent class="w-full mb-4 text-ml" name="Xodim lavozimi" type="text" />
-                <InputComponent class="w-full mb-4 text-ml" name="Xodim Ismi" type="text" />
-                <InputComponent class="w-full mb-4 text-ml" name="Xodim telefon raqami" type="tel" />
-                <InputComponent class="w-full mb-4 text-ml" name="Xodim email pochtasi" type="email" />
-                <InputComponent class="w-full mb-4 text-ml" name="Xodim rasmi" type="file" />
+                <h1 class="text-xl">Malumotlarni rus tilida qo'shing</h1>
+                <InputComponent v-model="job_ru" class="w-full mb-4 text-ml" name="Xodim lavozimi" type="text" />
+                <InputComponent v-model="name_ru" class="w-full mb-4 text-ml" name="Xodim Ismi" type="text" />
             </div>
 
             <div class="en">
-                <h1>Xodim haqidagi malumotlarni ingliz tilida qo'shing</h1>
-                <InputComponent class="w-full mb-4 text-ml" name="Xodim lavozimi" type="text" />
-                <InputComponent class="w-full mb-4 text-ml" name="Xodim Ismi" type="text" />
-                <InputComponent class="w-full mb-4 text-ml" name="Xodim telefon raqami" type="tel" />
-                <InputComponent class="w-full mb-4 text-ml" name="Xodim email pochtasi" type="email" />
-                <InputComponent class="w-full mb-4 text-ml" name="Xodim rasmi" type="file" />
+                <h1 class="text-xl">Malumotlarni ingliz tilida qo'shing</h1>
+                <InputComponent v-model="job_en" class="w-full mb-4 text-ml" name="Xodim lavozimi" type="text" />
+                <InputComponent v-model="name_en" class="w-full mb-4 text-ml" name="Xodim Ismi" type="text" />
             </div>
         </div>
+        <InputComponent v-model="tel" class="w-full mb-4 text-ml" name="Xodim telefon raqami" type="tel" />
+        <InputComponent v-model="email" class="w-full mb-4 text-ml" name="Xodim email pochtasi" type="email" />
 
-        <select
-            class="bg-white border border-slate-300 rounded-md py-2 pl-2 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm w-full select"
-        >
+        <label class="mb-4 border border-slate-300 py-2 pl-2 pr-3 rounded text-center shadow-sm">
+            <span class="text-indigo-600 font-semibold cursor-pointer">Xodim rasmini qo'shing</span>
+            <input @change="onFileUpload" class="hidden" type="file" />
+        </label>
+
+        <select v-if="isFakultet" v-model="id"
+            class="bg-white border border-slate-300 rounded-md py-2 pl-2 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm w-full select">
             <option w-full value="">Qaysi fakultetga qo'shmoqchisiz</option>
+            <option v-for="f in fakultet" :value="f._id">{{ f.title_uz }}</option>
         </select>
 
-        <button class="w-full font-semibold text-sm text-white active:opacity-75 rounded-md bg-green-600 px-4 py-3 mt-4 w-full flex justify-center" type="submit">Qo'shish</button>
+        <select v-if="isKafedra" v-model="id"
+            class="bg-white border border-slate-300 rounded-md py-2 pl-2 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm w-full select">
+            <option w-full value="">Qaysi kafedraga qo'shmoqchisiz</option>
+            <option v-for="k in kafedra" :value="k._id">{{ k.title_uz }}</option>
+        </select>
+
+
+
+        <button
+            class="w-full font-semibold text-sm text-white active:opacity-75 rounded-md bg-indigo-600 px-4 py-3 mt-4 w-full flex justify-center"
+            type="submit">Qo'shish</button>
     </form>
 </template>
 
 <script>
+import { http } from '../utils/http';
 import InputComponent from './InputComponent.vue';
 import Layout from './Layout.vue';
 
@@ -49,14 +58,102 @@ export default {
         InputComponent,
     },
     props: {
-        xodimData: Object
+        isFakultet: {
+            type: Boolean,
+            default: false
+        },
+        isKafedra: {
+            type: Boolean,
+            default: false
+        },
+        url: {
+            type: String,
+            default: ""
+        },
+        pushTo: {
+            type: String,
+            default: ""
+        }
+    },
+    data() {
+        return {
+            job_uz: "",
+            job_ru: "",
+            job_en: "",
+            name_uz: "",
+            name_ru: "",
+            name_en: "",
+            tel: "",
+            email: "",
+            id: "",
+            date: "",
+            photo: null,
+
+            fakultetId: "",
+            fakultet: [],
+            kafedraId: "",
+            kafedra: [],
+        }
+    },
+    methods: {
+        getFaculty() {
+            http.get("Fak_data/all")
+                .then(res => {
+                    console.log(res.data.data)
+                    this.fakultet = res.data.data
+                })
+                .catch(err => {
+                    console.log(err)
+                })
+        },
+        getKaferda() {
+            http.get("kafedra_data/all")
+                .then(res => {
+                    console.log(res.data.data)
+                    this.kafedra = res.data.data
+                })
+                .catch(err => {
+                    console.log(err)
+                })
+        },
+        onFileUpload(event) {
+            this.photo = event.target.files[0]
+        },
+
+        postData() {
+            const formData = new FormData()
+
+            formData.append("job_uz", this.job_uz)
+            formData.append("job_ru", this.job_ru)
+            formData.append("job_en", this.job_en)
+            formData.append("name_uz", this.name_uz)
+            formData.append("name_ru", this.name_ru)
+            formData.append("name_en", this.name_en)
+            formData.append("tell", this.tel)
+            formData.append("email", this.email)
+            formData.append(`${this.isFakultet ? "fakultet_id" : this.isKafedra ? "kafedra_id" : ""}`, this.id)
+            formData.append("photo", this.photo)
+
+            http.post(`${this.url}`, formData)
+                .then(res => {
+                    console.log(res.data.data)
+                    this.$router.push(`${this.pushTo}`)
+                })
+                .catch(err => {
+                    console.log(err)
+                })
+        }
+    },
+    created() {
+        this.getFaculty()
+        this.getKaferda()
     }
 }
 
 </script>
 
 <style scoped>
-form{
+form {
     display: flex;
     flex-direction: column;
 }
@@ -64,27 +161,30 @@ form{
 .form-content {
     display: flex;
     align-content: center;
-    justify-content: space-evenly;
+    justify-content: space-between;
 }
 
-.uz, .ru, .en{
+.uz,
+.ru,
+.en {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
 }
- .uz{
+
+.uz {
     padding-right: 5px;
- }
+}
 
- .ru{
+.ru {
     padding: 0px 5px;
- }
+}
 
- .en{
+.en {
     padding-left: 5px;
- }
+}
 
-h1{
+h1 {
     margin-bottom: 30px;
 }
 </style>

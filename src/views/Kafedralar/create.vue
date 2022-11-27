@@ -1,6 +1,11 @@
 <template>
 
     <Layout>
+        <ModalWindow class="xodim-modal" :show="showModal" @close="showModal = false">
+            <template #body>
+                <XodimForm :is-fakultet="false" :is-kafedra="true" url="kafedra_hodim/add" push-to="/items"/>
+            </template>
+        </ModalWindow>
         <form @submit.prevent="postData">
             <div class="my-8 mx-40 rounded-xl drop-shadow-md pt-20 pb-20 bg-white">
                 <div class="flex justify-evenly w-full">
@@ -8,8 +13,7 @@
                         <h1 class="news-info">Kafedra o'zbek tilida qo'shish</h1>
                         <hr />
                         <InputComponent required class="w-full" name="Kafedra nomi" v-model="kafedra.title_uz" />
-                        <TextAreaComponents required class="w-full" v-model="kafedra.haqida_uz"
-                            name="Kafedra haqida" />
+                        <TextAreaComponents required class="w-full" v-model="kafedra.haqida_uz" name="Kafedra haqida" />
                         <TextAreaComponents required class="w-full" v-model="kafedra.maqsad_uz"
                             name="Kafedra maqsadi" />
                         <TextAreaComponents required class="w-full" v-model="kafedra.yonalish_uz"
@@ -18,8 +22,7 @@
                         <h1 class="news-info">Kafedra rus tilida qo'shish</h1>
                         <hr />
                         <InputComponent required class="w-full" name="Kafedra nomi" v-model="kafedra.title_ru" />
-                        <TextAreaComponents required class="w-full" v-model="kafedra.haqida_ru"
-                            name="Kafedra haqida" />
+                        <TextAreaComponents required class="w-full" v-model="kafedra.haqida_ru" name="Kafedra haqida" />
                         <TextAreaComponents required class="w-full" v-model="kafedra.maqsad_ru"
                             name="Kafedra maqsadi" />
                         <TextAreaComponents required class="w-full" v-model="kafedra.yonalish_ru"
@@ -28,16 +31,14 @@
                         <h1 class="news-info">Kafedra ingliz tilida qo'shish</h1>
                         <hr />
                         <InputComponent required class="w-full" name="Kafedra nomi" v-model="kafedra.title_en" />
-                        <TextAreaComponents required class="w-full" v-model="kafedra.haqida_en"
-                            name="Kafedra haqida" />
+                        <TextAreaComponents required class="w-full" v-model="kafedra.haqida_en" name="Kafedra haqida" />
                         <TextAreaComponents required class="w-full" v-model="kafedra.maqsad_en"
                             name="Kafedra maqsadi" />
                         <TextAreaComponents required class="w-full" v-model="kafedra.yonalish_en"
                             name="Kafedra yo'nalishlari" />
 
                         <h1 class="news-info">Fakultetni tanlang</h1>
-                        <select
-                            required
+                        <select required
                             class="bg-white border border-slate-300 rounded-md py-2 pl-2 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm w-full select"
                             v-model="kafedra.fakultet_id">
                             <option value="">Fakultetni tanlang</option>
@@ -50,12 +51,13 @@
                 </div>
                 <div class="news-btn">
                     <button type="submit"
-                        class="   bg-blue-800 text-white font-bold px-7 py-4 rounded-md cursor-pointer active:bg-blue-500">yuklash
+                        class="bg-blue-800 text-white active:bg-blue-400 font-bold text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150">
+                        Malumotlarni Qo'shsish
                     </button>
-                    <RouterLink to="/news">
-                        <button type="submit"
-                            class="  bg-red-500 text-white font-bold px-7 py-4 rounded-md cursor-pointer active:bg-red-400">Ortga</button>
-                    </RouterLink>
+                    <button type="button" @click="showModal = true"
+                        class="bg-blue-800 text-white active:bg-blue-400 font-bold text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150">
+                        Xodim Qo'shish
+                    </button>
                 </div>
             </div>
         </form>
@@ -66,15 +68,21 @@
 import Layout from "../../components/Layout.vue";
 import InputComponent from "../../components/InputComponent.vue";
 import TextAreaComponents from "../../components/TextAreaComponents.vue"
+import ModalWindow from "../../components/ModalWindow.vue";
+import XodimForm from "../../components/XodimForm.vue"
+
 import { http } from "../../utils/http";
 export default {
     components: {
         Layout,
         InputComponent,
         TextAreaComponents,
+        ModalWindow,
+        XodimForm
     },
     data() {
         return {
+            showModal: false,
             kafedra: {
                 title_uz: "",
                 title_ru: "",
@@ -161,6 +169,8 @@ export default {
 
 .news-btn {
     display: flex;
+    align-items: center;
+    justify-content: space-between;
     margin: 20px 50px;
     gap: 15px;
 }

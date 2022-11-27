@@ -13,13 +13,13 @@ class UploadFilesService {
     formData.append("body_en", obj.body_en)
     formData.append("photo", file);
 
-    return await http.post("/elon/add", formData, {
+    return await http.post(`${uploadUrl}`, formData, {
       onUploadProgress
     });
   }
 
-  async getFiles() {
-    return await http.get("/elon/all")
+  async getFiles(getUrl) {
+    return await http.get(`${getUrl}`)
   }
 }
 
