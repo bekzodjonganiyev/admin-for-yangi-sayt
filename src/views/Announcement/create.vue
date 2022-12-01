@@ -74,7 +74,6 @@ export default {
     methods: {
         selectFile(event) {
             this.selectedFiles = event.target.files;
-            console.log(this.selectedFiles)
         },
 
         postData() {
@@ -86,19 +85,15 @@ export default {
             formData.append("body_ru", this.elon.body_ru)
             formData.append("body_en", this.elon.body_eng)
             formData.append("date", this.elon.date)
+
             for (let i = 0; i < this.selectedFiles.length; i++) {
                 formData.append("photo", this.selectedFiles[i])
-                console.log(this.selectedFiles[i])
-            }
-
-            for (var value of formData.values()) {
-                console.log(value);
             }
 
             http.post('/elon/add', formData
             ).then((res) => {
                 this.xabar()
-                console.log(res)
+                console.log(res.data.data)
             }).catch((err) => {
                 console.log(err)
             })

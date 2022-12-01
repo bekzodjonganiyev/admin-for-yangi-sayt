@@ -35,10 +35,10 @@
             </thead>
             <tbody class="divide-y divide-gray-100">
               <tr v-for="(customer, index) in customers" :key="index" class="bg-white">
-                <td class="p-3 text-sm text-gray-700 whitespce-nowrap"><img class="w-10 rounded" v-bind:src="url+'/'+customer.photo.split('public/')[1]" alt=""></td>
+                <td class="p-3 text-sm text-gray-700 whitespce-nowrap"><img class="w-10 rounded" v-bind:src="url+'/'+customer.photo" alt=""></td>
                 <td class="p-3 text-sm text-gray-700 whitespce-nowrap">{{ customer.title_uz }}</td>
                 <td class="p-3 text-sm text-gray-700 whitespce-nowrap">{{ customer.body_uz }}</td>
-                <td class="flex items-end">
+                <td class="">
                   <!-- <button type="button" class="mr-2 bg-orange-400 py-1 px-2 rounded">
                     <RouterLink :to="{ name: 'news.edit', params: { id: customer._id } }">Tahrirlash</RouterLink>
                   </button>
@@ -66,7 +66,7 @@
     data() {
       return {
         customers: [],
-        url: "http://backend.tkti.uz"
+        url: "http://localhost:5000"
       }
     },
     methods: {
