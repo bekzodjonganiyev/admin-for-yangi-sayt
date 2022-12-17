@@ -107,7 +107,7 @@ export default {
     return {
       customers: [],
       employes: [],
-      defaultUrl: "http://localhost:5000",
+      defaultUrl: "http://backend.tkti.uz",
       filteredArray: []
     }
   },

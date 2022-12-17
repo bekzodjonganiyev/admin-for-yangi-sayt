@@ -122,7 +122,7 @@ export default {
             employes: [],
             filteredArray: [],
             users: [],
-            url: "http://localhost:5000"
+            url: "http://backend.tkti.uz"
         }
     },
     methods: {

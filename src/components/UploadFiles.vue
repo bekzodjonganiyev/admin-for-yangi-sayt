@@ -19,10 +19,10 @@
         </div>
 
         <div class="flex m-2 pl-14 flex-wrap">
-            <a v-for="(file, index) in fileInfos" target="_blank" :href="'http://localhost:5000' + '/' + file.photo" :key="index">
+            <a v-for="(file, index) in fileInfos" target="_blank" :href="'http://backend.tkti.uz' + '/' + file.photo" :key="index">
                 <img 
                   class="m-2 w-20 h-20 rounded-full "
-                  :src="'http://localhost:5000' + '/' + file.photo" width="200" height="auto"
+                  :src="'http://backend.tkti.uz' + '/' + file.photo" width="200" height="auto"
                 />
             </a>
         </div>

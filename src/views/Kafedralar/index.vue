@@ -106,7 +106,7 @@
       return {
         kafedras: [],
         employes: [],
-        defaultUrl :"http://localhost:5000",
+        defaultUrl :"http://backend.tkti.uz",
         filteredArray: []
       }
     },

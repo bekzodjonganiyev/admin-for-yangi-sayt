@@ -75,7 +75,7 @@ export default {
          }
          else {
             http.post(
-               'http://localhost:5000/auth/add',
+               '/auth/add',
                {
                   name: this.name,
                   phone: this.phone,
@@ -98,7 +98,7 @@ export default {
          }
          else {
             http.post(
-               'http://localhost:5000/auth/login',
+               '/auth/login',
                {
                   phone: this.phone,
                   password: this.password,
