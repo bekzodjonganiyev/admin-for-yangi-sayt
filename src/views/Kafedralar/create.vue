@@ -3,7 +3,7 @@
     <Layout>
         <ModalWindow class="xodim-modal" :show="showModal" @close="showModal = false">
             <template #body>
-                <XodimForm :is-fakultet="false" :is-kafedra="true" url="kafedra_hodim/add" push-to="/items"/>
+                <XodimForm :is-fakultet="false" :is-bolim="false" :is-kafedra="true" url="kafedra_hodim/add" push-to="/items" />
             </template>
         </ModalWindow>
         <form @submit.prevent="postData">
@@ -42,7 +42,7 @@
                             class="bg-white border border-slate-300 rounded-md py-2 pl-2 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm w-full select"
                             v-model="kafedra.fakultet_id">
                             <option value="">Fakultetni tanlang</option>
-                            <option :value="kafedra.fakultet_id" v-for="faculty in faculties">{{ faculty.title_uz }}
+                            <option v-for="faculty in faculties" :value="faculty._id" >{{ faculty.title_uz }}
                             </option>
                         </select>
 

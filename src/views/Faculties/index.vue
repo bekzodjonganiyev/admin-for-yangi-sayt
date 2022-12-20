@@ -38,7 +38,7 @@
               <tr v-for="(faculty, index) in customers" :key="index" class="bg-white">
                 <td class="p-3 text-sm text-gray-700 whitespce-nowrap">{{ faculty.title_uz }}</td>
                 <td class="p-3 text-sm text-gray-700 whitespce-nowrap">
-                  <p v-for="(kafedra, index) in faculty.kafedras_uz" :key="index">{{kafedra}}</p>
+                  <p v-for="(kafedra, index) in faculty.kafedras_uz" :key="index">{{ kafedra }}</p>
                 </td>
                 <td class="">
                   <!-- <button type="button" class="mr-2 bg-orange-400 py-1 px-2 rounded">Tahrirlash
@@ -58,7 +58,7 @@
         <h1 class="text-xl  ">Fakultet Xodimlari</h1>
         <select class="w-96 p-2" ref="fakultet" @change="filterByFakultet">
           <option value="all">Fakultetni tanlang</option>
-          <option v-for="name in customers" :value="name._id">{{name.title_uz}}</option>
+          <option v-for="name in customers" :value="name._id">{{ name.title_uz }}</option>
         </select>
       </div>
       <div class="h-full w-full mt-4">
@@ -75,11 +75,11 @@
             </thead>
             <tbody class="divide-y divide-gray-100">
               <tr v-for="(xodim, index) in filteredArray" :key="index" class="bg-white">
-                <td class="p-3 text-sm text-gray-700 whitespce-nowrap"><img :src="defaultUrl+'/'+xodim.photo"
+                <td class="p-3 text-sm text-gray-700 whitespce-nowrap"><img :src="defaultUrl + '/' + xodim.photo"
                     alt="xodim rasmi" width="100" height="auto"></td>
-                <td class="p-3 text-sm text-gray-700 whitespce-nowrap">{{xodim.name_uz}}</td>
-                <td class="p-3 text-sm text-gray-700 whitespce-nowrap">{{xodim.job_uz}}</td>
-                <td class="p-3 text-sm text-gray-700 whitespce-nowrap">{{xodim.tell}}</td>
+                <td class="p-3 text-sm text-gray-700 whitespce-nowrap">{{ xodim.name_uz }}</td>
+                <td class="p-3 text-sm text-gray-700 whitespce-nowrap">{{ xodim.job_uz }}</td>
+                <td class="p-3 text-sm text-gray-700 whitespce-nowrap">{{ xodim.tell }}</td>
                 <td class=" whitespce-nowrap">
                   <!-- <button type="button" class="mr-2 bg-orange-400 py-1 px-2 rounded">Tahrirlash
                   </button>
@@ -143,11 +143,11 @@ export default {
         })
       }
     },
-    filterByFakultet(){
+    filterByFakultet() {
       const id = this.$refs.fakultet.value
-      if (id === "all"){
+      if (id === "all") {
         return this.filteredArray = this.employes
-      }else {
+      } else {
         return this.filteredArray = this.employes.filter(item => item.fakultet_id === id)
       }
     },

@@ -42,7 +42,7 @@
         <select v-if="isBolim" v-model="id"
             class="bg-white border border-slate-300 rounded-md py-2 pl-2 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm w-full select">
             <option w-full value="">Qaysi bo'limga qo'shmoqchisiz</option>
-            <option v-for="k in bolim" :value="k._id">{{ k.title_uz }}</option>
+            <option v-for="b in bolim" :value="b._id">{{ b.title_uz }}</option>
         </select>
 
 
