@@ -3,7 +3,7 @@
     <Layout>
         <ModalWindow class="xodim-modal" :show="showModal" @close="showModal = false">
             <template #body>
-                <XodimForm :is-fakultet="false" :is-kafedra="false" is-bolim="true" url="kafedra_hodim/add" push-to="/items" />
+                <XodimForm :is-fakultet="false" :is-kafedra="false" :is-bolim="true" url="bm_hodim/add" push-to="/departments" />
             </template>
         </ModalWindow>
         <form @submit.prevent="postData">
