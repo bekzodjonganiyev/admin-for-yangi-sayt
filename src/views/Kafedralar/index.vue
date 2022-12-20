@@ -147,16 +147,10 @@ export default {
 
     filterByKafdedra() {
       const id = this.$refs.kafedra.value
-      console.log(id)
       if (id === "all") {
         this.filteredArray = this.employes
-        // console.log(this.employes)
-        // console.log(this.filteredArray)
       } else {
-        console.log(this.employes)
         this.filteredArray = this.employes.filter(item => item.kafedra_id === id)
-        console.log(this.filteredArray)
-        // console.log(this.employes)
       }
     },
 
