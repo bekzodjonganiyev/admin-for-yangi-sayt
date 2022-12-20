@@ -6,7 +6,8 @@
                     <h1 class="news-info">Syllabusni Kiriting</h1>
                     <hr class="" />
                     <!-- Year -->
-                    <InputComponent class="w-full" name="Syllabusni nomini kiriting" type="text" v-model="education.title"/>
+                    <InputComponent class="w-full" name="Syllabusni nomini kiriting" type="text"
+                        v-model="education.title" />
                     <select required
                         class="bg-white border border-slate-300 rounded-md py-2 pl-2 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm w-full select"
                         v-model="education.year">
@@ -37,8 +38,7 @@
                     </select>
 
                     <!-- Faculty -->
-                    <select
-                        required
+                    <select required
                         class="bg-white border border-slate-300 rounded-md py-2 pl-2 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm w-full select"
                         v-model="education.faculty">
                         <option value="">Fakultetni tanlang</option>
@@ -49,27 +49,24 @@
                     </select>
 
                     <!-- Kafedra -->
-                    <select
-                        @change="getDirections()"
-                        ref="select"
-                        required
+                    <select @change="getDirections()" ref="select" required
                         class="bg-white border border-slate-300 rounded-md py-2 pl-2 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm w-full select"
                         v-model="education.kafedra">
                         <option value="">Kafedrani tanlang</option>
-                        <option class="text-black" v-for="(kafedra, index) in kaferdas" :value="kafedra._id" :key="index">
+                        <option class="text-black" v-for="(kafedra, index) in kaferdas" :value="kafedra.title_uz"
+                            :key="kafedra._id">
                             {{ kafedra.title_uz }}
                         </option>
                     </select>
 
                     <!-- Direction -->
-                    <select
-                        required
+                    <select required
                         class="bg-white border border-slate-300 rounded-md py-2 pl-2 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm w-full select"
                         v-model="education.direction">
                         <option value="">Talim yo'nalishini tanlang</option>
-                        <option class="text-black" v-for="(direction, index) in directions" :value="direction"
+                        <option class="text-black" v-for="(direction, index) in directions" :value="direction.yonalish_uz"
                             :key="index">
-                            {{ direction }}
+                            {{ direction.yonalish_uz.join("") }}
                         </option>
                     </select>
                     <InputComponent required class="w-full" name="Syllabusni yuklang" type="file"
@@ -156,11 +153,13 @@ export default {
 
         getDirections() {
             let kafId = this.$refs.select.value
+
             console.log(kafId)
-            http.get(`kafedra_data/${kafId}`)
+            http.get(`kafedra_data/all`)
                 .then(res => {
-                    console.log(res.data.data)
-                    this.directions = res.data.data.yonalish_uz
+                    console.log(res.data.data.filter(i => i.title_uz === kafId))
+
+                    this.directions = res.data.data.filter(i => i.title_uz === kafId)
                 })
         },
 
@@ -176,13 +175,13 @@ export default {
             formData.append("talim_darajasi", this.education.degree)
             formData.append("photo", this.education.file)
             http.post("daraja/add", formData)
-            .then(res => {
-                console.log(res.data)
-                this.$router.push("/syllabus")
-            })
-            .catch(err => {
-                console.log(err)
-            })
+                .then(res => {
+                    console.log(res.data)
+                    this.$router.push("/syllabus")
+                })
+                .catch(err => {
+                    console.log(err)
+                })
             console.log(this.education)
         }
     },

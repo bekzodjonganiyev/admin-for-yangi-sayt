@@ -78,12 +78,12 @@ export default {
 
         postData() {
             const formData = new FormData()
-            formData.append("title_uz", this.elon.title_uz)
-            formData.append("title_ru", this.elon.title_ru)
-            formData.append("title_en", this.elon.title_eng)
-            formData.append("body_uz", this.elon.body_uz)
-            formData.append("body_ru", this.elon.body_ru)
-            formData.append("body_en", this.elon.body_eng)
+            formData.append("title_uz", this.elon.title_uz.split("\n"))
+            formData.append("title_ru", this.elon.title_ru.split("\n"))
+            formData.append("title_en", this.elon.title_eng.split("\n"))
+            formData.append("body_uz", this.elon.body_uz.split("\n"))
+            formData.append("body_ru", this.elon.body_ru.split("\n"))
+            formData.append("body_en", this.elon.body_eng.split("\n"))
             formData.append("date", this.elon.date)
 
             for (let i = 0; i < this.selectedFiles.length; i++) {

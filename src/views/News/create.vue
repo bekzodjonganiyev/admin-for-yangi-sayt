@@ -73,12 +73,12 @@ export default {
         postData() {
             const formData = new FormData()
 
-            formData.append("title_uz", this.yangilik.title_uz)
-            formData.append("title_ru", this.yangilik.title_ru)
-            formData.append("title_en", this.yangilik.title_eng)
-            formData.append("body_uz", this.yangilik.body_uz)
-            formData.append("body_ru", this.yangilik.body_ru)
-            formData.append("body_en", this.yangilik.body_eng)
+            formData.append("title_uz", this.yangilik.title_uz.split("\n"))
+            formData.append("title_ru", this.yangilik.title_ru.split("\n"))
+            formData.append("title_en", this.yangilik.title_eng.split("\n"))
+            formData.append("body_uz", this.yangilik.body_uz.split("\n"))
+            formData.append("body_ru", this.yangilik.body_ru.split("\n"))
+            formData.append("body_en", this.yangilik.body_eng.split("\n"))
             formData.append("date", this.yangilik.date)
             for (let i = 0; i < this.selectedFiles.length; i++) {
                 formData.append("photo", this.selectedFiles[i])
