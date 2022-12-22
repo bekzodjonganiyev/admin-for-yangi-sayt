@@ -34,36 +34,22 @@ import Dropdown from "../components/Dropdown.vue";
           <!-- The right elements -->
           <div class="flex space-x-3">
                <!-- Product -->
-               <button class="bg-slate-100 text-slate-500 rounded-lg p-2">
-                    <svg
-                         xmlns="http://www.w3.org/2000/svg"
-                         class="h-5 w-5"
-                         viewBox="0 0 20 20"
-                         fill="currentColor"
-                    >
-                         <path
-                              fill-rule="evenodd"
-                              d="M5 5a3 3 0 015-2.236A3 3 0 0114.83 6H16a2 2 0 110 4h-5V9a1 1 0 10-2 0v1H4a2 2 0 110-4h1.17C5.06 5.687 5 5.35 5 5zm4 1V5a1 1 0 10-1 1h1zm3 0a1 1 0 10-1-1v1h1z"
-                              clip-rule="evenodd"
-                         />
-                         <path d="M9 11H3v5a2 2 0 002 2h4v-7zM11 18h4a2 2 0 002-2v-5h-6v7z" />
-                    </svg>
+               <button @click="logOut" class="bg-slate-100 text-slate-500 rounded-lg p-2">
+                    Log Out
                </button>
-
-               <!-- Notifications -->
-               <button class="bg-slate-100 text-slate-500 rounded-lg p-2">
-                    <svg
-                         xmlns="http://www.w3.org/2000/svg"
-                         class="h-5 w-5"
-                         viewBox="0 0 20 20"
-                         fill="currentColor"
-                    >
-                         <path
-                              d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z"
-                         />
-                    </svg>
-               </button>
-
           </div>
      </div>
 </template>
+
+<script>
+export default{
+     data(){
+     },
+     methods:{
+          logOut(){
+               // document.cookie = 
+               window.location.reload(false)
+          }
+     }
+}
+</script>
