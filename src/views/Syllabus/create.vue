@@ -108,10 +108,10 @@
             <option
               class="text-black"
               v-for="(direction, index) in directions"
-              :value="direction.yonalish_uz"
+              :value="direction"
               :key="index"
             >
-              {{ direction.yonalish_uz.join("") }}
+              {{ direction }}
             </option>
           </select>
           <InputComponent
@@ -166,7 +166,7 @@ export default {
       ],
       types: ["Kunduzgi", "Kechki", "Sirtqi"],
       degrees: ["Bakalavr", "Magistr", "Doktarantura"],
-      directions: [],
+      directions: {},
     };
   },
 
@@ -204,10 +204,10 @@ export default {
 
       console.log(kafId);
       http.get(`kafedra_data/all`).then((res) => {
-        console.log(res.data.data.filter((i) => i.title_uz === kafId));
-
-        this.directions = res.data.data.filter((i) => i.title_uz === kafId);
+        console.log(res.data.data.filter((i) => i.title_uz === kafId)[0].yonalish_uz);
+        this.directions = res.data.data.filter((i) => i.title_uz === kafId)[0].yonalish_uz;
       });
+      console.log(this.directions)
     },
 
     postData() {
