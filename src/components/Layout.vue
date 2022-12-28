@@ -5,15 +5,15 @@ import MainContent from "./MainContent.vue";
 </script>
 
 <template>
-   <div class="flex">
-      <Sidebar />
-      <div class="w-full  ">
-         <Header />
-         <MainContent>
-            <slot />
-         </MainContent>
-      </div>
-   </div>
+  <div class="flex">
+    <Sidebar />
+    <div class="w-full">
+      <Header />
+      <MainContent>
+        <slot />
+      </MainContent>
+    </div>
+  </div>
 </template>
 
 <style>

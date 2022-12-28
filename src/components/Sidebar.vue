@@ -1,4 +1,3 @@
-
 <template>
   <!-- Sidebar -->
   <div class="min-h-screen bg-gray-900 w-72">
@@ -6,7 +5,11 @@
       <!-- TCTI Logo -->
       <div class="m-4 mt-6">
         <a class="flex items-center" href="#" target="_blank ">
-          <img class="mr-2 w-16" src="../assets/logo.png" alt="aplhasoft_logo" />
+          <img
+            class="mr-2 w-16"
+            src="../assets/logo.png"
+            alt="aplhasoft_logo"
+          />
           <h1 class="text-white text-2xl font-semibold">TCTI Admin</h1>
         </a>
       </div>
@@ -53,7 +56,6 @@ a.router-link-exact-active {
   color: #42b983;
 }
 </style>
-
 
 <script setup>
 import { RouterLink } from "vue-router";

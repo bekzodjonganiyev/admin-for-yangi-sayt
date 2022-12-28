@@ -1,5 +1,4 @@
-{
-  "name": "cloud-erp-supplier-front",
+{"name": "cloud-erp-supplier-front",
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",

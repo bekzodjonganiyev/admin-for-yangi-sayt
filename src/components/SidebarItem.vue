@@ -1,5 +1,5 @@
 <template>
-    <RouterLink></RouterLink>
+  <RouterLink></RouterLink>
 </template>
 
 <script setup>

@@ -4,7 +4,7 @@ import Dashboard from "../views/Dashboard.vue";
 import Announcement from "../views/Announcement/index.vue";
 import AnnouncementEdit from "../views/Announcement/edit.vue";
 import AnnouncementAdd from "../views/Announcement/create.vue";
-import AnnouncementView from "../views/Announcement/view.vue"
+import AnnouncementView from "../views/Announcement/view.vue";
 
 import Items from "../views/Kafedralar/index.vue";
 import salom from "../views/Kafedralar/create.vue";
@@ -20,18 +20,18 @@ import OrdersAdd from "../views/Activities/OrdersAdd.vue";
 import OrdersEdit from "../views/Activities/OrdersEdit.vue";
 import OrdersView from "../views/Activities/OrdersView.vue";
 
-import Departments from "../views/Departments/index.vue"
-import DepartmentsAdd from "../views/Departments/create.vue"
-import DepartmentsEdit from "../views/Departments/edit.vue"
-import DepartmentsView from "../views/Departments/view.vue"
+import Departments from "../views/Departments/index.vue";
+import DepartmentsAdd from "../views/Departments/create.vue";
+import DepartmentsEdit from "../views/Departments/edit.vue";
+import DepartmentsView from "../views/Departments/view.vue";
 
-import Syllabus from "../views/Syllabus/index.vue"
-import SyllabusAdd from "../views/Syllabus/create.vue"
+import Syllabus from "../views/Syllabus/index.vue";
+import SyllabusAdd from "../views/Syllabus/create.vue";
 
 import News from "../views/News/index.vue";
 import NewsCreate from "../views/News/create.vue";
 import NewsEdit from "../views/News/edit.vue";
-import NewsView from "../views/News/view.vue"
+import NewsView from "../views/News/view.vue";
 
 const router = createRouter({
   history: createWebHistory(),
@@ -115,14 +115,14 @@ const router = createRouter({
 
     {
       path: "/syllabus",
-      name:"syllabus",
-      component:Syllabus
+      name: "syllabus",
+      component: Syllabus,
     },
 
     {
-      path:"/syllabus/create",
-      name:"syllabus.create",
-      component:SyllabusAdd
+      path: "/syllabus/create",
+      name: "syllabus.create",
+      component: SyllabusAdd,
     },
     // Announcement page
     {
